@@ -82,14 +82,4 @@ Sistema de folha de pagamento com base nas normas brasileiras vigentes, desenvol
 
 ---
 
-## 📅 Próximos Passos
-
-1. Implementar estrutura de classes para cálculos (INSS, IRRF, FGTS, Salário-Família, VA, VT).
-2. Criar o formulário visual de cálculo com campos e botões.
-3. Criar o formulário de padronização com campos para modificar faixas/alíquotas/benefícios.
-4. Implementar a exportação para PDF com PDFSharp (ou similar).
-5. Testes de cálculo com cenários reais.
-6. Embalamento da aplicação como `.exe` ou via instalador.
-
----
 
