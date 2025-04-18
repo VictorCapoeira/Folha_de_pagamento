@@ -30,50 +30,50 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.txtNome = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtCargo = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtMatricula = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtSalarioBase = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.cmbInsalubridade = new System.Windows.Forms.ComboBox();
+            this.cmbPericulosidade = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.cmbValetransporte = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
+            this.cmbPensao = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.txtPensao = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.comboBox5 = new System.Windows.Forms.ComboBox();
+            this.cmbValeReifeicao = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.txtValerefeicao = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
-            this.comboBox7 = new System.Windows.Forms.ComboBox();
+            this.cmbHora50 = new System.Windows.Forms.ComboBox();
             this.label14 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.txtHora50 = new System.Windows.Forms.TextBox();
+            this.txtHora100 = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
-            this.comboBox6 = new System.Windows.Forms.ComboBox();
+            this.cmbHora100 = new System.Windows.Forms.ComboBox();
             this.label16 = new System.Windows.Forms.Label();
-            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.txtFalta1 = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
-            this.comboBox8 = new System.Windows.Forms.ComboBox();
+            this.cmbFalta1 = new System.Windows.Forms.ComboBox();
             this.label18 = new System.Windows.Forms.Label();
-            this.textBox9 = new System.Windows.Forms.TextBox();
+            this.txtFalta2 = new System.Windows.Forms.TextBox();
             this.label19 = new System.Windows.Forms.Label();
-            this.comboBox9 = new System.Windows.Forms.ComboBox();
+            this.cmbFalta2 = new System.Windows.Forms.ComboBox();
             this.label20 = new System.Windows.Forms.Label();
-            this.textBox10 = new System.Windows.Forms.TextBox();
+            this.txtFalta4 = new System.Windows.Forms.TextBox();
             this.label21 = new System.Windows.Forms.Label();
-            this.comboBox10 = new System.Windows.Forms.ComboBox();
+            this.cmbFalta4 = new System.Windows.Forms.ComboBox();
             this.label22 = new System.Windows.Forms.Label();
-            this.textBox11 = new System.Windows.Forms.TextBox();
+            this.txtFalta3 = new System.Windows.Forms.TextBox();
             this.label23 = new System.Windows.Forms.Label();
-            this.comboBox11 = new System.Windows.Forms.ComboBox();
+            this.cmbFalta3 = new System.Windows.Forms.ComboBox();
             this.label24 = new System.Windows.Forms.Label();
             this.panelAdicionais = new System.Windows.Forms.Panel();
             this.btnAddAdicional = new System.Windows.Forms.Button();
@@ -83,6 +83,11 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.panelDescontos = new System.Windows.Forms.Panel();
+            this.label27 = new System.Windows.Forms.Label();
+            this.label29 = new System.Windows.Forms.Label();
+            this.cmbAno = new System.Windows.Forms.ComboBox();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -100,13 +105,14 @@
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(429, 20);
             this.txtNome.TabIndex = 1;
+            this.txtNome.KeyPress += txtNome_TextChanged;
             // 
-            // textBox1
+            // txtCargo
             // 
-            this.textBox1.Location = new System.Drawing.Point(223, 38);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(258, 20);
-            this.textBox1.TabIndex = 7;
+            this.txtCargo.Location = new System.Drawing.Point(223, 38);
+            this.txtCargo.Name = "txtCargo";
+            this.txtCargo.Size = new System.Drawing.Size(258, 20);
+            this.txtCargo.TabIndex = 7;
             // 
             // label3
             // 
@@ -117,12 +123,12 @@
             this.label3.TabIndex = 6;
             this.label3.Text = "Cargo: ";
             // 
-            // textBox2
+            // txtMatricula
             // 
-            this.textBox2.Location = new System.Drawing.Point(60, 38);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(116, 20);
-            this.textBox2.TabIndex = 5;
+            this.txtMatricula.Location = new System.Drawing.Point(60, 38);
+            this.txtMatricula.Name = "txtMatricula";
+            this.txtMatricula.Size = new System.Drawing.Size(116, 20);
+            this.txtMatricula.TabIndex = 5;
             // 
             // label4
             // 
@@ -144,12 +150,12 @@
     " - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -" +
     " - - - - - - - - - - - ";
             // 
-            // textBox3
+            // txtSalarioBase
             // 
-            this.textBox3.Location = new System.Drawing.Point(87, 81);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(125, 20);
-            this.textBox3.TabIndex = 10;
+            this.txtSalarioBase.Location = new System.Drawing.Point(87, 81);
+            this.txtSalarioBase.Name = "txtSalarioBase";
+            this.txtSalarioBase.Size = new System.Drawing.Size(125, 20);
+            this.txtSalarioBase.TabIndex = 10;
             // 
             // label5
             // 
@@ -169,21 +175,21 @@
             this.label6.TabIndex = 11;
             this.label6.Text = "Insalubridade: ";
             // 
-            // comboBox1
+            // cmbInsalubridade
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(318, 81);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(159, 21);
-            this.comboBox1.TabIndex = 12;
+            this.cmbInsalubridade.FormattingEnabled = true;
+            this.cmbInsalubridade.Location = new System.Drawing.Point(318, 81);
+            this.cmbInsalubridade.Name = "cmbInsalubridade";
+            this.cmbInsalubridade.Size = new System.Drawing.Size(159, 21);
+            this.cmbInsalubridade.TabIndex = 12;
             // 
-            // comboBox2
+            // cmbPericulosidade
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(93, 115);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(121, 21);
-            this.comboBox2.TabIndex = 14;
+            this.cmbPericulosidade.FormattingEnabled = true;
+            this.cmbPericulosidade.Location = new System.Drawing.Point(93, 115);
+            this.cmbPericulosidade.Name = "cmbPericulosidade";
+            this.cmbPericulosidade.Size = new System.Drawing.Size(121, 21);
+            this.cmbPericulosidade.TabIndex = 14;
             // 
             // label7
             // 
@@ -194,13 +200,13 @@
             this.label7.TabIndex = 13;
             this.label7.Text = "Periculosidade:";
             // 
-            // comboBox3
+            // cmbValetransporte
             // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(318, 115);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(159, 21);
-            this.comboBox3.TabIndex = 16;
+            this.cmbValetransporte.FormattingEnabled = true;
+            this.cmbValetransporte.Location = new System.Drawing.Point(318, 115);
+            this.cmbValetransporte.Name = "cmbValetransporte";
+            this.cmbValetransporte.Size = new System.Drawing.Size(159, 21);
+            this.cmbValetransporte.TabIndex = 16;
             // 
             // label8
             // 
@@ -211,13 +217,13 @@
             this.label8.TabIndex = 15;
             this.label8.Text = "Vale-Transporte:";
             // 
-            // comboBox4
+            // cmbPensao
             // 
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(118, 149);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(121, 21);
-            this.comboBox4.TabIndex = 18;
+            this.cmbPensao.FormattingEnabled = true;
+            this.cmbPensao.Location = new System.Drawing.Point(118, 149);
+            this.cmbPensao.Name = "cmbPensao";
+            this.cmbPensao.Size = new System.Drawing.Size(121, 21);
+            this.cmbPensao.TabIndex = 18;
             // 
             // label9
             // 
@@ -228,12 +234,12 @@
             this.label9.TabIndex = 17;
             this.label9.Text = "Pensão alimenticia: ";
             // 
-            // textBox4
+            // txtPensao
             // 
-            this.textBox4.Location = new System.Drawing.Point(425, 149);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(52, 20);
-            this.textBox4.TabIndex = 20;
+            this.txtPensao.Location = new System.Drawing.Point(425, 149);
+            this.txtPensao.Name = "txtPensao";
+            this.txtPensao.Size = new System.Drawing.Size(52, 20);
+            this.txtPensao.TabIndex = 20;
             // 
             // label10
             // 
@@ -244,13 +250,13 @@
             this.label10.TabIndex = 19;
             this.label10.Text = "Porcentagem de pensão alimenticia: ";
             // 
-            // comboBox5
+            // cmbValeReifeicao
             // 
-            this.comboBox5.FormattingEnabled = true;
-            this.comboBox5.Location = new System.Drawing.Point(97, 176);
-            this.comboBox5.Name = "comboBox5";
-            this.comboBox5.Size = new System.Drawing.Size(121, 21);
-            this.comboBox5.TabIndex = 22;
+            this.cmbValeReifeicao.FormattingEnabled = true;
+            this.cmbValeReifeicao.Location = new System.Drawing.Point(97, 176);
+            this.cmbValeReifeicao.Name = "cmbValeReifeicao";
+            this.cmbValeReifeicao.Size = new System.Drawing.Size(121, 21);
+            this.cmbValeReifeicao.TabIndex = 22;
             // 
             // label11
             // 
@@ -261,12 +267,12 @@
             this.label11.TabIndex = 21;
             this.label11.Text = "Vale-Refeição: ";
             // 
-            // textBox5
+            // txtValerefeicao
             // 
-            this.textBox5.Location = new System.Drawing.Point(425, 179);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(52, 20);
-            this.textBox5.TabIndex = 24;
+            this.txtValerefeicao.Location = new System.Drawing.Point(425, 179);
+            this.txtValerefeicao.Name = "txtValerefeicao";
+            this.txtValerefeicao.Size = new System.Drawing.Size(52, 20);
+            this.txtValerefeicao.TabIndex = 24;
             // 
             // label12
             // 
@@ -286,13 +292,13 @@
             this.label13.TabIndex = 27;
             this.label13.Text = "Tempo de hora extra: ";
             // 
-            // comboBox7
+            // cmbHora50
             // 
-            this.comboBox7.FormattingEnabled = true;
-            this.comboBox7.Location = new System.Drawing.Point(99, 213);
-            this.comboBox7.Name = "comboBox7";
-            this.comboBox7.Size = new System.Drawing.Size(52, 21);
-            this.comboBox7.TabIndex = 26;
+            this.cmbHora50.FormattingEnabled = true;
+            this.cmbHora50.Location = new System.Drawing.Point(99, 213);
+            this.cmbHora50.Name = "cmbHora50";
+            this.cmbHora50.Size = new System.Drawing.Size(52, 21);
+            this.cmbHora50.TabIndex = 26;
             // 
             // label14
             // 
@@ -303,19 +309,19 @@
             this.label14.TabIndex = 25;
             this.label14.Text = "Hora extras 50%: ";
             // 
-            // textBox6
+            // txtHora50
             // 
-            this.textBox6.Location = new System.Drawing.Point(275, 216);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(52, 20);
-            this.textBox6.TabIndex = 28;
+            this.txtHora50.Location = new System.Drawing.Point(275, 216);
+            this.txtHora50.Name = "txtHora50";
+            this.txtHora50.Size = new System.Drawing.Size(52, 20);
+            this.txtHora50.TabIndex = 28;
             // 
-            // textBox7
+            // txtHora100
             // 
-            this.textBox7.Location = new System.Drawing.Point(291, 244);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(52, 20);
-            this.textBox7.TabIndex = 32;
+            this.txtHora100.Location = new System.Drawing.Point(291, 244);
+            this.txtHora100.Name = "txtHora100";
+            this.txtHora100.Size = new System.Drawing.Size(52, 20);
+            this.txtHora100.TabIndex = 32;
             // 
             // label15
             // 
@@ -326,13 +332,13 @@
             this.label15.TabIndex = 31;
             this.label15.Text = "Tempo de hora extra: ";
             // 
-            // comboBox6
+            // cmbHora100
             // 
-            this.comboBox6.FormattingEnabled = true;
-            this.comboBox6.Location = new System.Drawing.Point(108, 244);
-            this.comboBox6.Name = "comboBox6";
-            this.comboBox6.Size = new System.Drawing.Size(52, 21);
-            this.comboBox6.TabIndex = 30;
+            this.cmbHora100.FormattingEnabled = true;
+            this.cmbHora100.Location = new System.Drawing.Point(108, 244);
+            this.cmbHora100.Name = "cmbHora100";
+            this.cmbHora100.Size = new System.Drawing.Size(52, 21);
+            this.cmbHora100.TabIndex = 30;
             // 
             // label16
             // 
@@ -343,12 +349,12 @@
             this.label16.TabIndex = 29;
             this.label16.Text = "Hora extras 100%: ";
             // 
-            // textBox8
+            // txtFalta1
             // 
-            this.textBox8.Location = new System.Drawing.Point(260, 275);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(52, 20);
-            this.textBox8.TabIndex = 36;
+            this.txtFalta1.Location = new System.Drawing.Point(260, 275);
+            this.txtFalta1.Name = "txtFalta1";
+            this.txtFalta1.Size = new System.Drawing.Size(52, 20);
+            this.txtFalta1.TabIndex = 36;
             // 
             // label17
             // 
@@ -359,13 +365,13 @@
             this.label17.TabIndex = 35;
             this.label17.Text = "Tempo de faltas: ";
             // 
-            // comboBox8
+            // cmbFalta1
             // 
-            this.comboBox8.FormattingEnabled = true;
-            this.comboBox8.Location = new System.Drawing.Point(120, 275);
-            this.comboBox8.Name = "comboBox8";
-            this.comboBox8.Size = new System.Drawing.Size(52, 21);
-            this.comboBox8.TabIndex = 34;
+            this.cmbFalta1.FormattingEnabled = true;
+            this.cmbFalta1.Location = new System.Drawing.Point(120, 275);
+            this.cmbFalta1.Name = "cmbFalta1";
+            this.cmbFalta1.Size = new System.Drawing.Size(52, 21);
+            this.cmbFalta1.TabIndex = 34;
             // 
             // label18
             // 
@@ -376,12 +382,12 @@
             this.label18.TabIndex = 33;
             this.label18.Text = "Faltas na 1° semana: ";
             // 
-            // textBox9
+            // txtFalta2
             // 
-            this.textBox9.Location = new System.Drawing.Point(260, 305);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(52, 20);
-            this.textBox9.TabIndex = 40;
+            this.txtFalta2.Location = new System.Drawing.Point(260, 305);
+            this.txtFalta2.Name = "txtFalta2";
+            this.txtFalta2.Size = new System.Drawing.Size(52, 20);
+            this.txtFalta2.TabIndex = 40;
             // 
             // label19
             // 
@@ -392,13 +398,13 @@
             this.label19.TabIndex = 39;
             this.label19.Text = "Tempo de faltas: ";
             // 
-            // comboBox9
+            // cmbFalta2
             // 
-            this.comboBox9.FormattingEnabled = true;
-            this.comboBox9.Location = new System.Drawing.Point(120, 305);
-            this.comboBox9.Name = "comboBox9";
-            this.comboBox9.Size = new System.Drawing.Size(52, 21);
-            this.comboBox9.TabIndex = 38;
+            this.cmbFalta2.FormattingEnabled = true;
+            this.cmbFalta2.Location = new System.Drawing.Point(120, 305);
+            this.cmbFalta2.Name = "cmbFalta2";
+            this.cmbFalta2.Size = new System.Drawing.Size(52, 21);
+            this.cmbFalta2.TabIndex = 38;
             // 
             // label20
             // 
@@ -409,12 +415,12 @@
             this.label20.TabIndex = 37;
             this.label20.Text = "Faltas na 2° semana: ";
             // 
-            // textBox10
+            // txtFalta4
             // 
-            this.textBox10.Location = new System.Drawing.Point(260, 366);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(52, 20);
-            this.textBox10.TabIndex = 48;
+            this.txtFalta4.Location = new System.Drawing.Point(260, 366);
+            this.txtFalta4.Name = "txtFalta4";
+            this.txtFalta4.Size = new System.Drawing.Size(52, 20);
+            this.txtFalta4.TabIndex = 48;
             // 
             // label21
             // 
@@ -425,13 +431,13 @@
             this.label21.TabIndex = 47;
             this.label21.Text = "Tempo de faltas: ";
             // 
-            // comboBox10
+            // cmbFalta4
             // 
-            this.comboBox10.FormattingEnabled = true;
-            this.comboBox10.Location = new System.Drawing.Point(120, 366);
-            this.comboBox10.Name = "comboBox10";
-            this.comboBox10.Size = new System.Drawing.Size(52, 21);
-            this.comboBox10.TabIndex = 46;
+            this.cmbFalta4.FormattingEnabled = true;
+            this.cmbFalta4.Location = new System.Drawing.Point(120, 366);
+            this.cmbFalta4.Name = "cmbFalta4";
+            this.cmbFalta4.Size = new System.Drawing.Size(52, 21);
+            this.cmbFalta4.TabIndex = 46;
             // 
             // label22
             // 
@@ -442,12 +448,12 @@
             this.label22.TabIndex = 45;
             this.label22.Text = "Faltas na 4° semana: ";
             // 
-            // textBox11
+            // txtFalta3
             // 
-            this.textBox11.Location = new System.Drawing.Point(260, 336);
-            this.textBox11.Name = "textBox11";
-            this.textBox11.Size = new System.Drawing.Size(52, 20);
-            this.textBox11.TabIndex = 44;
+            this.txtFalta3.Location = new System.Drawing.Point(260, 336);
+            this.txtFalta3.Name = "txtFalta3";
+            this.txtFalta3.Size = new System.Drawing.Size(52, 20);
+            this.txtFalta3.TabIndex = 44;
             // 
             // label23
             // 
@@ -458,13 +464,13 @@
             this.label23.TabIndex = 43;
             this.label23.Text = "Tempo de faltas: ";
             // 
-            // comboBox11
+            // cmbFalta3
             // 
-            this.comboBox11.FormattingEnabled = true;
-            this.comboBox11.Location = new System.Drawing.Point(120, 336);
-            this.comboBox11.Name = "comboBox11";
-            this.comboBox11.Size = new System.Drawing.Size(52, 21);
-            this.comboBox11.TabIndex = 42;
+            this.cmbFalta3.FormattingEnabled = true;
+            this.cmbFalta3.Location = new System.Drawing.Point(120, 336);
+            this.cmbFalta3.Name = "cmbFalta3";
+            this.cmbFalta3.Size = new System.Drawing.Size(52, 21);
+            this.cmbFalta3.TabIndex = 42;
             // 
             // label24
             // 
@@ -551,11 +557,62 @@
             this.panelDescontos.TabIndex = 53;
             this.panelDescontos.Paint += new System.Windows.Forms.PaintEventHandler(this.panelDescontos_Paint);
             // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Location = new System.Drawing.Point(-56, 680);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(559, 13);
+            this.label27.TabIndex = 57;
+            this.label27.Text = "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -" +
+    " - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -" +
+    " - - - - - - - - - - - ";
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Location = new System.Drawing.Point(9, 659);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(32, 13);
+            this.label29.TabIndex = 58;
+            this.label29.Text = "Ano: ";
+            // 
+            // cmbAno
+            // 
+            this.cmbAno.FormattingEnabled = true;
+            this.cmbAno.Location = new System.Drawing.Point(39, 656);
+            this.cmbAno.Name = "cmbAno";
+            this.cmbAno.Size = new System.Drawing.Size(52, 21);
+            this.cmbAno.TabIndex = 59;
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(79, 706);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(133, 67);
+            this.button4.TabIndex = 60;
+            this.button4.Text = "Calcular";
+            this.button4.UseVisualStyleBackColor = true;
+            // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(239, 706);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(133, 67);
+            this.button5.TabIndex = 61;
+            this.button5.Text = "Limpar";
+            this.button5.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(489, 674);
+            this.ClientSize = new System.Drawing.Size(489, 790);
+            this.Controls.Add(this.button5);
+            this.Controls.Add(this.button4);
+            this.Controls.Add(this.cmbAno);
+            this.Controls.Add(this.label29);
+            this.Controls.Add(this.label27);
             this.Controls.Add(this.label26);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button3);
@@ -564,55 +621,56 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btnAddAdicional);
             this.Controls.Add(this.panelAdicionais);
-            this.Controls.Add(this.textBox10);
+            this.Controls.Add(this.txtFalta4);
             this.Controls.Add(this.label21);
-            this.Controls.Add(this.comboBox10);
+            this.Controls.Add(this.cmbFalta4);
             this.Controls.Add(this.label22);
-            this.Controls.Add(this.textBox11);
+            this.Controls.Add(this.txtFalta3);
             this.Controls.Add(this.label23);
-            this.Controls.Add(this.comboBox11);
+            this.Controls.Add(this.cmbFalta3);
             this.Controls.Add(this.label24);
-            this.Controls.Add(this.textBox9);
+            this.Controls.Add(this.txtFalta2);
             this.Controls.Add(this.label19);
-            this.Controls.Add(this.comboBox9);
+            this.Controls.Add(this.cmbFalta2);
             this.Controls.Add(this.label20);
-            this.Controls.Add(this.textBox8);
+            this.Controls.Add(this.txtFalta1);
             this.Controls.Add(this.label17);
-            this.Controls.Add(this.comboBox8);
+            this.Controls.Add(this.cmbFalta1);
             this.Controls.Add(this.label18);
-            this.Controls.Add(this.textBox7);
+            this.Controls.Add(this.txtHora100);
             this.Controls.Add(this.label15);
-            this.Controls.Add(this.comboBox6);
+            this.Controls.Add(this.cmbHora100);
             this.Controls.Add(this.label16);
-            this.Controls.Add(this.textBox6);
+            this.Controls.Add(this.txtHora50);
             this.Controls.Add(this.label13);
-            this.Controls.Add(this.comboBox7);
+            this.Controls.Add(this.cmbHora50);
             this.Controls.Add(this.label14);
-            this.Controls.Add(this.textBox5);
+            this.Controls.Add(this.txtValerefeicao);
             this.Controls.Add(this.label12);
-            this.Controls.Add(this.comboBox5);
+            this.Controls.Add(this.cmbValeReifeicao);
             this.Controls.Add(this.label11);
-            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.txtPensao);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.comboBox4);
+            this.Controls.Add(this.cmbPensao);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.comboBox3);
+            this.Controls.Add(this.cmbValetransporte);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.comboBox2);
+            this.Controls.Add(this.cmbPericulosidade);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.cmbInsalubridade);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.txtSalarioBase);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtCargo);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.txtMatricula);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.txtNome);
             this.Controls.Add(this.label1);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = " ";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -622,50 +680,50 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtNome;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtCargo;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtMatricula;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txtSalarioBase;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox cmbInsalubridade;
+        private System.Windows.Forms.ComboBox cmbPericulosidade;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.ComboBox cmbValetransporte;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.ComboBox comboBox4;
+        private System.Windows.Forms.ComboBox cmbPensao;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox txtPensao;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.ComboBox comboBox5;
+        private System.Windows.Forms.ComboBox cmbValeReifeicao;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox txtValerefeicao;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.ComboBox comboBox7;
+        private System.Windows.Forms.ComboBox cmbHora50;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.TextBox txtHora50;
+        private System.Windows.Forms.TextBox txtHora100;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.ComboBox comboBox6;
+        private System.Windows.Forms.ComboBox cmbHora100;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.TextBox txtFalta1;
         private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.ComboBox comboBox8;
+        private System.Windows.Forms.ComboBox cmbFalta1;
         private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.TextBox textBox9;
+        private System.Windows.Forms.TextBox txtFalta2;
         private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.ComboBox comboBox9;
+        private System.Windows.Forms.ComboBox cmbFalta2;
         private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.TextBox textBox10;
+        private System.Windows.Forms.TextBox txtFalta4;
         private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.ComboBox comboBox10;
+        private System.Windows.Forms.ComboBox cmbFalta4;
         private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.TextBox textBox11;
+        private System.Windows.Forms.TextBox txtFalta3;
         private System.Windows.Forms.Label label23;
-        private System.Windows.Forms.ComboBox comboBox11;
+        private System.Windows.Forms.ComboBox cmbFalta3;
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.Panel panelAdicionais;
         private System.Windows.Forms.Button btnAddAdicional;
@@ -675,6 +733,11 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Panel panelDescontos;
+        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.Label label29;
+        private System.Windows.Forms.ComboBox cmbAno;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button5;
     }
 }
 
