@@ -39,7 +39,7 @@ namespace FolhaDePagamento
                 Width = 80,
                 Location = new Point(170, yOffset)
             };
-
+            txtValor.KeyPress += ValidacaoNumeros;
             panelAdicionais.Controls.Add(txtNome);
             panelAdicionais.Controls.Add(txtValor);
 
@@ -72,7 +72,7 @@ namespace FolhaDePagamento
                 Width = 80,
                 Location = new Point(170, yOffset2)
             };
-
+            txtValor.KeyPress += ValidacaoNumeros;
             panelDescontos.Controls.Add(txtNome);
             panelDescontos.Controls.Add(txtValor);
 
@@ -116,6 +116,7 @@ namespace FolhaDePagamento
                 e.Handled = true;
             }
         }
+
 
         
     }
