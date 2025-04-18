@@ -128,7 +128,6 @@
             this.txtMatricula.Name = "txtMatricula";
             this.txtMatricula.Size = new System.Drawing.Size(116, 20);
             this.txtMatricula.TabIndex = 5;
-            this.txtMatricula.KeyPress += txtMatricula_TextChanged;
             // 
             // label4
             // 
@@ -156,6 +155,7 @@
             this.txtSalarioBase.Name = "txtSalarioBase";
             this.txtSalarioBase.Size = new System.Drawing.Size(125, 20);
             this.txtSalarioBase.TabIndex = 10;
+            this.txtSalarioBase.KeyPress += txtSalarioBase_TextChanged;
             // 
             // label5
             // 
