@@ -107,6 +107,12 @@ namespace FolhaDePagamento
             }
         }
 
-       
+        private void txtMatricula_TextChanged(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && e.KeyChar != ',' && e.KeyChar != '.')
+            {
+                e.Handled = true; 
+            }
+        }
     }
 }

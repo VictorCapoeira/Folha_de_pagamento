@@ -105,7 +105,6 @@
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(429, 20);
             this.txtNome.TabIndex = 1;
-            this.txtNome.KeyPress += txtNome_TextChanged;
             // 
             // txtCargo
             // 
@@ -129,6 +128,7 @@
             this.txtMatricula.Name = "txtMatricula";
             this.txtMatricula.Size = new System.Drawing.Size(116, 20);
             this.txtMatricula.TabIndex = 5;
+            this.txtMatricula.KeyPress += txtMatricula_TextChanged;
             // 
             // label4
             // 
