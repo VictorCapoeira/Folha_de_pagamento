@@ -162,46 +162,55 @@ namespace FolhaDePagamento
         {
             if(!double.TryParse(txtSalarioBase.Text, out salarioBase)){
                 MessageBox.Show("Valor de salário inválido ou campo está vazio!","Error", MessageBoxButtons.OK , MessageBoxIcon.Error);
+                txtSalarioBase.Focus();
                 return;
             }
             if (cmbPensao.Text == "Sim" && !double.TryParse(txtPensao.Text, out pensaoPorcetagem))
             {
                 MessageBox.Show("Valor de pensão alimenticia é inválido ou campo está vazio!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtPensao.Focus();
                 return;
             }
             if (cmbValeReifeicao.Text == "Sim" && !double.TryParse(txtValerefeicao.Text, out valeRefeicaoPorcetagem))
             {
                 MessageBox.Show("Valor de vale refeição é inválido ou campo está vazio!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtValerefeicao.Focus();
                 return;
             }
             if (cmbHora50.Text == "Sim" && !double.TryParse(txtHora50.Text, out horaExtra50Tempo))
             {
                 MessageBox.Show("Valor de hora extra a 50% é inválido ou campo está vazio!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtHora50.Focus();
                 return;
             }
             if (cmbHora100.Text == "Sim" && !double.TryParse(txtHora100.Text, out horaExtra100Tempo))
             {
                 MessageBox.Show("Valor de hora extra a 100% é inválido ou campo está vazio!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtHora100.Focus();
                 return;
             }
             if (cmbFalta1.Text == "Sim" && !double.TryParse(txtFalta1.Text, out falta1SemanaTempo))
             {
                 MessageBox.Show("Valor da falta 1° semana é inválida ou campo está vazio!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtFalta1.Focus();
                 return;
             }
             if (cmbFalta2.Text == "Sim" && !double.TryParse(txtFalta2.Text, out falta2SemanaTempo))
             {
                 MessageBox.Show("Valor da falta 2° semana é inválida ou campo está vazio!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtFalta2.Focus();
                 return;
             }
             if (cmbFalta3.Text == "Sim" && !double.TryParse(txtFalta3.Text, out falta3SemanaTempo))
             {
                 MessageBox.Show("Valor da falta 3° semana é inválida ou campo está vazio!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtFalta3.Focus();
                 return;
             }
             if (cmbFalta4.Text == "Sim" && !double.TryParse(txtFalta4.Text, out falta4SemanaTempo))
             {
                 MessageBox.Show("Valor da falta 4° semana é inválida ou campo está vazio!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtFalta4.Focus();
                 return;
             }
             if (!int.TryParse(cmbAno.Text, out anoSelecionado))
@@ -209,7 +218,24 @@ namespace FolhaDePagamento
                 MessageBox.Show("Selecione o ano!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-
+            foreach(Control controle in panelAdicionais.Controls)
+            {
+                if(controle is TextBox txt && string.IsNullOrWhiteSpace(txt.Text))
+                {
+                    MessageBox.Show("Por favor, preencha todos os campos de benefícios adicionais.", "Campo obrigatório", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txt.Focus();
+                    return;
+                }
+            }
+            foreach (Control controle in panelDescontos.Controls)
+            {
+                if (controle is TextBox txt && string.IsNullOrWhiteSpace(txt.Text))
+                {
+                    MessageBox.Show("Por favor, preencha todos os campos de descontos adicionais.", "Campo obrigatório", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txt.Focus();
+                    return;
+                }
+            }
 
         }
     }
