@@ -105,7 +105,6 @@
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(429, 20);
             this.txtNome.TabIndex = 1;
-            this.txtNome.KeyPress += txtNome_TextChanged;
             // 
             // txtCargo
             // 
@@ -129,7 +128,6 @@
             this.txtMatricula.Name = "txtMatricula";
             this.txtMatricula.Size = new System.Drawing.Size(116, 20);
             this.txtMatricula.TabIndex = 5;
-            this.txtMatricula.KeyPress += ValidacaoNumeros;
             // 
             // label4
             // 
@@ -157,7 +155,6 @@
             this.txtSalarioBase.Name = "txtSalarioBase";
             this.txtSalarioBase.Size = new System.Drawing.Size(125, 20);
             this.txtSalarioBase.TabIndex = 10;
-            this.txtSalarioBase.KeyPress += ValidacaoNumeros;
             // 
             // label5
             // 
@@ -179,6 +176,7 @@
             // 
             // cmbInsalubridade
             // 
+            this.cmbInsalubridade.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbInsalubridade.FormattingEnabled = true;
             this.cmbInsalubridade.Location = new System.Drawing.Point(318, 81);
             this.cmbInsalubridade.Name = "cmbInsalubridade";
@@ -187,6 +185,7 @@
             // 
             // cmbPericulosidade
             // 
+            this.cmbPericulosidade.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbPericulosidade.FormattingEnabled = true;
             this.cmbPericulosidade.Location = new System.Drawing.Point(93, 115);
             this.cmbPericulosidade.Name = "cmbPericulosidade";
@@ -204,6 +203,7 @@
             // 
             // cmbValetransporte
             // 
+            this.cmbValetransporte.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbValetransporte.FormattingEnabled = true;
             this.cmbValetransporte.Location = new System.Drawing.Point(318, 115);
             this.cmbValetransporte.Name = "cmbValetransporte";
@@ -221,6 +221,7 @@
             // 
             // cmbPensao
             // 
+            this.cmbPensao.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbPensao.FormattingEnabled = true;
             this.cmbPensao.Location = new System.Drawing.Point(118, 149);
             this.cmbPensao.Name = "cmbPensao";
@@ -242,7 +243,6 @@
             this.txtPensao.Name = "txtPensao";
             this.txtPensao.Size = new System.Drawing.Size(52, 20);
             this.txtPensao.TabIndex = 20;
-            this.txtPensao.KeyPress += ValidacaoNumeros;
             // 
             // label10
             // 
@@ -255,6 +255,7 @@
             // 
             // cmbValeReifeicao
             // 
+            this.cmbValeReifeicao.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbValeReifeicao.FormattingEnabled = true;
             this.cmbValeReifeicao.Location = new System.Drawing.Point(97, 176);
             this.cmbValeReifeicao.Name = "cmbValeReifeicao";
@@ -276,7 +277,6 @@
             this.txtValerefeicao.Name = "txtValerefeicao";
             this.txtValerefeicao.Size = new System.Drawing.Size(52, 20);
             this.txtValerefeicao.TabIndex = 24;
-            this.txtValerefeicao.KeyPress += ValidacaoNumeros;
             // 
             // label12
             // 
@@ -298,6 +298,7 @@
             // 
             // cmbHora50
             // 
+            this.cmbHora50.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbHora50.FormattingEnabled = true;
             this.cmbHora50.Location = new System.Drawing.Point(99, 213);
             this.cmbHora50.Name = "cmbHora50";
@@ -319,7 +320,6 @@
             this.txtHora50.Name = "txtHora50";
             this.txtHora50.Size = new System.Drawing.Size(52, 20);
             this.txtHora50.TabIndex = 28;
-            this.txtHora50.KeyPress += ValidacaoNumeros;
             // 
             // txtHora100
             // 
@@ -327,7 +327,6 @@
             this.txtHora100.Name = "txtHora100";
             this.txtHora100.Size = new System.Drawing.Size(52, 20);
             this.txtHora100.TabIndex = 32;
-            this.txtHora100.KeyPress += ValidacaoNumeros;
             // 
             // label15
             // 
@@ -340,6 +339,7 @@
             // 
             // cmbHora100
             // 
+            this.cmbHora100.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbHora100.FormattingEnabled = true;
             this.cmbHora100.Location = new System.Drawing.Point(108, 244);
             this.cmbHora100.Name = "cmbHora100";
@@ -361,7 +361,6 @@
             this.txtFalta1.Name = "txtFalta1";
             this.txtFalta1.Size = new System.Drawing.Size(52, 20);
             this.txtFalta1.TabIndex = 36;
-            this.txtFalta1.KeyPress += ValidacaoNumeros;
             // 
             // label17
             // 
@@ -374,6 +373,7 @@
             // 
             // cmbFalta1
             // 
+            this.cmbFalta1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbFalta1.FormattingEnabled = true;
             this.cmbFalta1.Location = new System.Drawing.Point(120, 275);
             this.cmbFalta1.Name = "cmbFalta1";
@@ -395,7 +395,6 @@
             this.txtFalta2.Name = "txtFalta2";
             this.txtFalta2.Size = new System.Drawing.Size(52, 20);
             this.txtFalta2.TabIndex = 40;
-            this.txtFalta2.KeyPress += ValidacaoNumeros;
             // 
             // label19
             // 
@@ -408,6 +407,7 @@
             // 
             // cmbFalta2
             // 
+            this.cmbFalta2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbFalta2.FormattingEnabled = true;
             this.cmbFalta2.Location = new System.Drawing.Point(120, 305);
             this.cmbFalta2.Name = "cmbFalta2";
@@ -429,7 +429,6 @@
             this.txtFalta4.Name = "txtFalta4";
             this.txtFalta4.Size = new System.Drawing.Size(52, 20);
             this.txtFalta4.TabIndex = 48;
-            this.txtFalta4.KeyPress += ValidacaoNumeros;
             // 
             // label21
             // 
@@ -442,6 +441,7 @@
             // 
             // cmbFalta4
             // 
+            this.cmbFalta4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbFalta4.FormattingEnabled = true;
             this.cmbFalta4.Location = new System.Drawing.Point(120, 366);
             this.cmbFalta4.Name = "cmbFalta4";
@@ -463,7 +463,6 @@
             this.txtFalta3.Name = "txtFalta3";
             this.txtFalta3.Size = new System.Drawing.Size(52, 20);
             this.txtFalta3.TabIndex = 44;
-            this.txtFalta3.KeyPress += ValidacaoNumeros;
             // 
             // label23
             // 
@@ -476,6 +475,7 @@
             // 
             // cmbFalta3
             // 
+            this.cmbFalta3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbFalta3.FormattingEnabled = true;
             this.cmbFalta3.Location = new System.Drawing.Point(120, 336);
             this.cmbFalta3.Name = "cmbFalta3";
@@ -589,6 +589,7 @@
             // 
             // cmbAno
             // 
+            this.cmbAno.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbAno.FormattingEnabled = true;
             this.cmbAno.Location = new System.Drawing.Point(39, 656);
             this.cmbAno.Name = "cmbAno";
@@ -603,6 +604,7 @@
             this.button4.TabIndex = 60;
             this.button4.Text = "Calcular";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button5
             // 
