@@ -105,6 +105,7 @@
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(429, 20);
             this.txtNome.TabIndex = 1;
+            this.txtNome.KeyPress += txtNome_TextChanged;
             // 
             // txtCargo
             // 
@@ -128,6 +129,7 @@
             this.txtMatricula.Name = "txtMatricula";
             this.txtMatricula.Size = new System.Drawing.Size(116, 20);
             this.txtMatricula.TabIndex = 5;
+            this.txtMatricula.KeyPress += ValidacaoNumeros;
             // 
             // label4
             // 
@@ -155,7 +157,7 @@
             this.txtSalarioBase.Name = "txtSalarioBase";
             this.txtSalarioBase.Size = new System.Drawing.Size(125, 20);
             this.txtSalarioBase.TabIndex = 10;
-            this.txtSalarioBase.KeyPress += txtSalarioBase_TextChanged;
+            this.txtSalarioBase.KeyPress += ValidacaoNumeros;
             // 
             // label5
             // 
@@ -240,6 +242,7 @@
             this.txtPensao.Name = "txtPensao";
             this.txtPensao.Size = new System.Drawing.Size(52, 20);
             this.txtPensao.TabIndex = 20;
+            this.txtPensao.KeyPress += ValidacaoNumeros;
             // 
             // label10
             // 
@@ -273,6 +276,7 @@
             this.txtValerefeicao.Name = "txtValerefeicao";
             this.txtValerefeicao.Size = new System.Drawing.Size(52, 20);
             this.txtValerefeicao.TabIndex = 24;
+            this.txtValerefeicao.KeyPress += ValidacaoNumeros;
             // 
             // label12
             // 
@@ -315,6 +319,7 @@
             this.txtHora50.Name = "txtHora50";
             this.txtHora50.Size = new System.Drawing.Size(52, 20);
             this.txtHora50.TabIndex = 28;
+            this.txtHora50.KeyPress += ValidacaoNumeros;
             // 
             // txtHora100
             // 
@@ -322,6 +327,7 @@
             this.txtHora100.Name = "txtHora100";
             this.txtHora100.Size = new System.Drawing.Size(52, 20);
             this.txtHora100.TabIndex = 32;
+            this.txtHora100.KeyPress += ValidacaoNumeros;
             // 
             // label15
             // 
@@ -355,6 +361,7 @@
             this.txtFalta1.Name = "txtFalta1";
             this.txtFalta1.Size = new System.Drawing.Size(52, 20);
             this.txtFalta1.TabIndex = 36;
+            this.txtFalta1.KeyPress += ValidacaoNumeros;
             // 
             // label17
             // 
@@ -388,6 +395,7 @@
             this.txtFalta2.Name = "txtFalta2";
             this.txtFalta2.Size = new System.Drawing.Size(52, 20);
             this.txtFalta2.TabIndex = 40;
+            this.txtFalta2.KeyPress += ValidacaoNumeros;
             // 
             // label19
             // 
@@ -421,6 +429,7 @@
             this.txtFalta4.Name = "txtFalta4";
             this.txtFalta4.Size = new System.Drawing.Size(52, 20);
             this.txtFalta4.TabIndex = 48;
+            this.txtFalta4.KeyPress += ValidacaoNumeros;
             // 
             // label21
             // 
@@ -454,6 +463,7 @@
             this.txtFalta3.Name = "txtFalta3";
             this.txtFalta3.Size = new System.Drawing.Size(52, 20);
             this.txtFalta3.TabIndex = 44;
+            this.txtFalta3.KeyPress += ValidacaoNumeros;
             // 
             // label23
             // 

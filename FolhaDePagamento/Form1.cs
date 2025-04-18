@@ -107,20 +107,16 @@ namespace FolhaDePagamento
             }
         }
 
-        private void txtMatricula_TextChanged(object sender, KeyPressEventArgs e)
-        {
-            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && e.KeyChar != ',' && e.KeyChar != '.')
-            {
-                e.Handled = true; 
-            }
-        }
 
-        private void txtSalarioBase_TextChanged(object sender, KeyPressEventArgs e)
+
+        private void ValidacaoNumeros(object sender, KeyPressEventArgs e)
         {
             if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && e.KeyChar != ',' && e.KeyChar != '.')
             {
                 e.Handled = true;
             }
         }
+
+        
     }
 }
