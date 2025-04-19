@@ -58,6 +58,7 @@
     <Compile Include="FormParametros.Designer.cs">
       <DependentUpon>FormParametros.cs</DependentUpon>
     </Compile>
+    <Compile Include="Parametros.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">

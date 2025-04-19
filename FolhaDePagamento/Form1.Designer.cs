@@ -88,6 +88,7 @@
             this.cmbAno = new System.Windows.Forms.ComboBox();
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -598,7 +599,7 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(79, 706);
+            this.button4.Location = new System.Drawing.Point(9, 706);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(133, 67);
             this.button4.TabIndex = 60;
@@ -608,18 +609,29 @@
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(239, 706);
+            this.button5.Location = new System.Drawing.Point(169, 706);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(133, 67);
             this.button5.TabIndex = 61;
             this.button5.Text = "Limpar";
             this.button5.UseVisualStyleBackColor = true;
             // 
+            // button6
+            // 
+            this.button6.Location = new System.Drawing.Point(318, 706);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(133, 67);
+            this.button6.TabIndex = 62;
+            this.button6.Text = "Parametros";
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(489, 790);
+            this.Controls.Add(this.button6);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.cmbAno);
@@ -750,6 +762,7 @@
         private System.Windows.Forms.ComboBox cmbAno;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button button6;
     }
 }
 

@@ -238,5 +238,12 @@ namespace FolhaDePagamento
             }
 
         }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            FormParametros frm = new FormParametros();
+            frm.ShowDialog();
+
+        }
     }
 }
