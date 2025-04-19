@@ -7,23 +7,34 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using FolhaDePagamento_Parametros;
 
 namespace FolhaDePagamento
 {
+    
     public partial class Form1 : Form
     {
         public int yOffset = 0;
         public int yOffset2 = 0;
-        public double salarioBase;
-        public double pensaoPorcetagem;
-        public double valeRefeicaoPorcetagem;
-        public double horaExtra50Tempo;
-        public double horaExtra100Tempo;
-        public double falta1SemanaTempo;
-        public double falta2SemanaTempo;
-        public double falta3SemanaTempo;
-        public double falta4SemanaTempo;
+        public decimal salarioBase;
+        public decimal pensaoPorcetagem;
+        public decimal valeRefeicaoPorcetagem;
+        public decimal horaExtra50Tempo;
+        public decimal horaExtra100Tempo;
+        public decimal falta1SemanaTempo;
+        public decimal falta2SemanaTempo;
+        public decimal falta3SemanaTempo;
+        public decimal falta4SemanaTempo;
         public int anoSelecionado;
+        public decimal salarioBruto;
+        public decimal salarioLiquido;
+        public decimal horaExtraValores = 0;
+        public decimal faltasvalores;
+        public decimal inssValor;
+        public decimal fgtsValor;
+        public decimal irrfValor;
+
+        Parametros parametros = new Parametros();
         public Form1()
         {
             InitializeComponent();
@@ -57,6 +68,7 @@ namespace FolhaDePagamento
             cmbAno.Items.Add(2022);
             cmbAno.Items.Add(2021);
             cmbAno.Items.Add(2020);
+
 
         }
 
@@ -160,54 +172,54 @@ namespace FolhaDePagamento
 
         private void button4_Click(object sender, EventArgs e)
         {
-            if(!double.TryParse(txtSalarioBase.Text, out salarioBase)){
+            if(!decimal.TryParse(txtSalarioBase.Text, out salarioBase)){
                 MessageBox.Show("Valor de salário inválido ou campo está vazio!","Error", MessageBoxButtons.OK , MessageBoxIcon.Error);
                 txtSalarioBase.Focus();
                 return;
             }
-            if (cmbPensao.Text == "Sim" && !double.TryParse(txtPensao.Text, out pensaoPorcetagem))
+            if (cmbPensao.Text == "Sim" && !decimal.TryParse(txtPensao.Text, out pensaoPorcetagem))
             {
                 MessageBox.Show("Valor de pensão alimenticia é inválido ou campo está vazio!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtPensao.Focus();
                 return;
             }
-            if (cmbValeReifeicao.Text == "Sim" && !double.TryParse(txtValerefeicao.Text, out valeRefeicaoPorcetagem))
+            if (cmbValeReifeicao.Text == "Sim" && !decimal.TryParse(txtValerefeicao.Text, out valeRefeicaoPorcetagem))
             {
                 MessageBox.Show("Valor de vale refeição é inválido ou campo está vazio!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtValerefeicao.Focus();
                 return;
             }
-            if (cmbHora50.Text == "Sim" && !double.TryParse(txtHora50.Text, out horaExtra50Tempo))
+            if (cmbHora50.Text == "Sim" && !decimal.TryParse(txtHora50.Text, out horaExtra50Tempo))
             {
                 MessageBox.Show("Valor de hora extra a 50% é inválido ou campo está vazio!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtHora50.Focus();
                 return;
             }
-            if (cmbHora100.Text == "Sim" && !double.TryParse(txtHora100.Text, out horaExtra100Tempo))
+            if (cmbHora100.Text == "Sim" && !decimal.TryParse(txtHora100.Text, out horaExtra100Tempo))
             {
                 MessageBox.Show("Valor de hora extra a 100% é inválido ou campo está vazio!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtHora100.Focus();
                 return;
             }
-            if (cmbFalta1.Text == "Sim" && !double.TryParse(txtFalta1.Text, out falta1SemanaTempo))
+            if (cmbFalta1.Text == "Sim" && !decimal.TryParse(txtFalta1.Text, out falta1SemanaTempo))
             {
                 MessageBox.Show("Valor da falta 1° semana é inválida ou campo está vazio!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtFalta1.Focus();
                 return;
             }
-            if (cmbFalta2.Text == "Sim" && !double.TryParse(txtFalta2.Text, out falta2SemanaTempo))
+            if (cmbFalta2.Text == "Sim" && !decimal.TryParse(txtFalta2.Text, out falta2SemanaTempo))
             {
                 MessageBox.Show("Valor da falta 2° semana é inválida ou campo está vazio!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtFalta2.Focus();
                 return;
             }
-            if (cmbFalta3.Text == "Sim" && !double.TryParse(txtFalta3.Text, out falta3SemanaTempo))
+            if (cmbFalta3.Text == "Sim" && !decimal.TryParse(txtFalta3.Text, out falta3SemanaTempo))
             {
                 MessageBox.Show("Valor da falta 3° semana é inválida ou campo está vazio!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtFalta3.Focus();
                 return;
             }
-            if (cmbFalta4.Text == "Sim" && !double.TryParse(txtFalta4.Text, out falta4SemanaTempo))
+            if (cmbFalta4.Text == "Sim" && !decimal.TryParse(txtFalta4.Text, out falta4SemanaTempo))
             {
                 MessageBox.Show("Valor da falta 4° semana é inválida ou campo está vazio!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtFalta4.Focus();
@@ -236,6 +248,20 @@ namespace FolhaDePagamento
                     return;
                 }
             }
+            Parametros parametrosbase = parametros.CarregarParametrosPorAno(anoSelecionado.ToString());
+            if (horaExtra100Tempo != 0)
+            {
+                horaExtraValores += (salarioBase / 220) * 2 * horaExtra100Tempo;
+            }
+            if (horaExtra50Tempo != 0)
+            {
+                horaExtraValores += (salarioBase / 220) * 1.5m * horaExtra50Tempo;
+            }
+            salarioBruto = salarioBase + horaExtraValores + SomarAdicionais();
+            inssValor = CalcularINSS(salarioBruto, parametrosbase);
+            irrfValor = CalcularIRRF((salarioBruto - inssValor), parametrosbase);
+            fgtsValor = salarioBruto * parametrosbase.Fgts;
+
 
         }
 
@@ -245,5 +271,84 @@ namespace FolhaDePagamento
             frm.ShowDialog();
 
         }
+        private decimal CalcularINSS(decimal salario, Parametros p)
+        {
+            decimal inss = 0;
+            decimal[] faixas = p.InssFaixas.ToArray();
+            decimal[] aliquotas = p.InssAliquotas.ToArray();
+            decimal teto = faixas.Last();
+
+            for (int i = 0; i < faixas.Length; i++)
+            {
+                decimal limite = (i == faixas.Length - 1) ? teto : faixas[i + 1] - faixas[i];
+                decimal baseCalculo = Math.Min(salario, faixas[i]);
+
+                if (salario > faixas[i])
+                {
+                    decimal valorFaixa = (i == 0 ? faixas[i] : faixas[i] - faixas[i - 1]);
+                    inss += valorFaixa * aliquotas[i];
+                }
+                else
+                {
+                    decimal restante = salario - (i == 0 ? 0 : faixas[i - 1]);
+                    inss += restante * aliquotas[i];
+                    break;
+                }
+            }
+
+            return inss;
+        }
+        private decimal CalcularIRRF(decimal baseCalculo, Parametros p)
+        {
+            for (int i = p.IrrfFaixas.Count - 1; i >= 0; i--)
+            {
+                if (baseCalculo > p.IrrfFaixas[i])
+                {
+                    return baseCalculo * p.IrrfAliquotas[i] - p.IrrfDeducoes[i];
+                }
+            }
+
+            return 0;
+        }
+        private decimal SomarAdicionais()
+        {
+            decimal total = 0;
+
+            for (int i = 0; i < panelAdicionais.Controls.Count; i++)
+            {
+                Control c = panelAdicionais.Controls[i];
+
+                if (c is TextBox txt && txt.Name.Contains("Valor"))
+                {
+                    if (decimal.TryParse(txt.Text.Replace("R$", "").Trim(), out decimal valor))
+                    {
+                        total += valor;
+                    }
+                }
+            }
+
+            return total;
+        }
+        private decimal SomarDescontos()
+        {
+            decimal total = 0;
+
+            for (int i = 0; i < panelDescontos.Controls.Count; i++)
+            {
+                Control c = panelDescontos.Controls[i];
+
+                if (c is TextBox txt && txt.Name.Contains("Valor"))
+                {
+                    if (decimal.TryParse(txt.Text.Replace("R$", "").Trim(), out decimal valor))
+                    {
+                        total += valor;
+                    }
+                }
+            }
+
+            return total;
+        }
+
+
     }
 }
