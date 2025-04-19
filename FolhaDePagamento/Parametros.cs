@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FolhaDePagamento
+namespace FolhaDePagamento_Parametros
 {
     public class Parametros
     {

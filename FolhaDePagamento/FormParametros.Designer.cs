@@ -42,6 +42,8 @@
             this.label = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.txtFgts = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // cmbAnoParametro
@@ -154,18 +156,36 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(15, 347);
+            this.button2.Location = new System.Drawing.Point(15, 376);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(152, 37);
             this.button2.TabIndex = 13;
             this.button2.Text = "Salvar Edições";
             this.button2.UseVisualStyleBackColor = true;
             // 
+            // txtFgts
+            // 
+            this.txtFgts.Location = new System.Drawing.Point(28, 350);
+            this.txtFgts.Name = "txtFgts";
+            this.txtFgts.Size = new System.Drawing.Size(121, 20);
+            this.txtFgts.TabIndex = 15;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(12, 333);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(27, 13);
+            this.label6.TabIndex = 14;
+            this.label6.Text = "Fgts";
+            // 
             // FormParametros
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(208, 396);
+            this.ClientSize = new System.Drawing.Size(208, 425);
+            this.Controls.Add(this.txtFgts);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.txtIrrfDeducoes);
@@ -204,5 +224,7 @@
         private System.Windows.Forms.Label label;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.TextBox txtFgts;
+        private System.Windows.Forms.Label label6;
     }
 }
