@@ -360,7 +360,7 @@ namespace FolhaDePagamento
                 pensaoValor = (salarioLiquido * pensaoPorcetagem) / 100;
                 salarioLiquido -= pensaoValor;
             }
-            
+            MessageBox.Show(salarioLiquido.ToString());
             
 
 
