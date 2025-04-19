@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace FolhaDePagamento_Parametros
 {
@@ -75,6 +76,52 @@ namespace FolhaDePagamento_Parametros
 
             return parametros;
         }
+        public void SalvarParametrosNoArquivo(string ano, Parametros novos)
+        {
+            string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "parametros.txt");
+
+            // Lê todas as linhas existentes, se houver
+            List<string> linhas = File.Exists(path) ? File.ReadAllLines(path).ToList() : new List<string>();
+
+            int indexInicio = linhas.FindIndex(l => l.Trim() == $"[{ano}]");
+
+            if (indexInicio != -1)
+            {
+                // Encontrar o final do bloco atual
+                int indexFim = indexInicio + 1;
+                while (indexFim < linhas.Count && !linhas[indexFim].StartsWith("[")) indexFim++;
+
+                linhas.RemoveRange(indexInicio, indexFim - indexInicio);
+            }
+
+            // Adiciona os novos dados do ano ao final da lista
+            linhas.Add($"[{ano}]");
+            linhas.AddRange(GerarLinhasDeParametro(novos));
+
+            // Escreve tudo com StreamWriter
+            using (StreamWriter writer = new StreamWriter(path, false)) // false = sobrescreve tudo
+            {
+                foreach (string linha in linhas)
+                {
+                    writer.WriteLine(linha);
+                }
+            }
+            MessageBox.Show("Alterações realizadas com sucesso!","Status",MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+        }
+        private List<string> GerarLinhasDeParametro(Parametros p)
+        {
+            return new List<string>
+    {
+        $"INSS_FAIXAS={string.Join(",", p.InssFaixas)}",
+        $"INSS_ALIQUOTAS={string.Join(",", p.InssAliquotas)}",
+        $"IRRF_FAIXAS={string.Join(",", p.IrrfFaixas)}",
+        $"IRRF_ALIQUOTAS={string.Join(",", p.IrrfAliquotas)}",
+        $"IRRF_DEDUCOES={string.Join(",", p.IrrfDeducoes)}",
+        $"FGTS={p.Fgts}"
+    };
+        }
+
+
 
     }
 

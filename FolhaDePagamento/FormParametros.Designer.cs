@@ -162,6 +162,7 @@
             this.button2.TabIndex = 13;
             this.button2.Text = "Salvar Edições";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // txtFgts
             // 

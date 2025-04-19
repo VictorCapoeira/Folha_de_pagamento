@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -47,6 +48,22 @@ namespace FolhaDePagamento
 
         private void FormParametros_Load(object sender, EventArgs e)
         {
+            
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            string ano = cmbAnoParametro.SelectedItem.ToString();
+            Parametros novoParametro = new Parametros
+            {
+                InssFaixas = txtInssFaixas.Text.Split(',').Select(v => decimal.Parse(v)).ToList(),
+                InssAliquotas = txtInssAliquotas.Text.Split(',').Select(v => decimal.Parse(v)).ToList(),
+                IrrfFaixas = txtIrrfFaixas.Text.Split(',').Select(v => decimal.Parse(v)).ToList(),
+                IrrfAliquotas = txtIrrfAliquotas.Text.Split(',').Select(v => decimal.Parse(v)).ToList(),
+                IrrfDeducoes = txtIrrfDeducoes.Text.Split(',').Select(v => decimal.Parse(v)).ToList(),
+                Fgts = decimal.Parse(txtFgts.Text)
+            };
+            baseTxt.SalvarParametrosNoArquivo(ano, novoParametro);
 
         }
     }
