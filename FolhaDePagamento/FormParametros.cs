@@ -14,7 +14,7 @@ namespace FolhaDePagamento
 {
     public partial class FormParametros : Form
     {
-        Parametros baseTxt = new Parametros();
+        BaseDeParametros baseTxt = new BaseDeParametros();
         public FormParametros()
         {
             InitializeComponent();
@@ -42,6 +42,7 @@ namespace FolhaDePagamento
             txtIrrfAliquotas.Text = string.Join(",", carregarTxt.IrrfAliquotas);
             txtIrrfDeducoes.Text = string.Join(",", carregarTxt.IrrfDeducoes);
             txtFgts.Text = carregarTxt.Fgts.ToString();
+            txtSalarioMinimo.Text = carregarTxt.SalarioMinimo.ToString();
 
 
         }
@@ -61,9 +62,15 @@ namespace FolhaDePagamento
                 IrrfFaixas = txtIrrfFaixas.Text.Split(',').Select(v => decimal.Parse(v)).ToList(),
                 IrrfAliquotas = txtIrrfAliquotas.Text.Split(',').Select(v => decimal.Parse(v)).ToList(),
                 IrrfDeducoes = txtIrrfDeducoes.Text.Split(',').Select(v => decimal.Parse(v)).ToList(),
-                Fgts = decimal.Parse(txtFgts.Text)
+                Fgts = decimal.Parse(txtFgts.Text),
+                SalarioMinimo = decimal.Parse(txtSalarioMinimo.Text)
             };
-            baseTxt.SalvarParametrosNoArquivo(ano, novoParametro);
+            baseTxt.SalvarParametros(ano, novoParametro);
+
+        }
+
+        private void txtFgts_TextChanged(object sender, EventArgs e)
+        {
 
         }
     }

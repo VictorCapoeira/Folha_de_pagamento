@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -18,11 +19,15 @@ namespace FolhaDePagamento_Parametros
         public decimal Fgts { get; set; }
         public decimal SalarioFamilia { get; set; }
         public decimal LimiteSalarioFamilia { get; set; }
+        public decimal SalarioMinimo { get; set; }
+    }
+    public class BaseDeParametros
+    {
+        private readonly string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "parametros.txt");
+
         public Parametros CarregarParametrosPorAno(string ano)
         {
-            string caminho = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "parametros.txt");
-            var linhas = File.ReadAllLines(caminho);
-
+            var linhas = File.ReadAllLines(path);
             var parametros = new Parametros();
             bool anoEncontrado = false;
 
@@ -47,28 +52,31 @@ namespace FolhaDePagamento_Parametros
                     switch (chave)
                     {
                         case "INSS_FAIXAS":
-                            parametros.InssFaixas = valor.Split(',').Select(v => decimal.Parse(v)).ToList();
+                            parametros.InssFaixas = valor.Split(',').Select(v => decimal.Parse(v.Trim(), CultureInfo.InvariantCulture)).ToList();
                             break;
                         case "INSS_ALIQUOTAS":
-                            parametros.InssAliquotas = valor.Split(',').Select(v => decimal.Parse(v)).ToList();
+                            parametros.InssAliquotas = valor.Split(',').Select(v => decimal.Parse(v.Trim(), CultureInfo.InvariantCulture)).ToList();
                             break;
                         case "IRRF_FAIXAS":
-                            parametros.IrrfFaixas = valor.Split(',').Select(v => decimal.Parse(v)).ToList();
+                            parametros.IrrfFaixas = valor.Split(',').Select(v => decimal.Parse(v.Trim(), CultureInfo.InvariantCulture)).ToList();
                             break;
                         case "IRRF_ALIQUOTAS":
-                            parametros.IrrfAliquotas = valor.Split(',').Select(v => decimal.Parse(v)).ToList();
+                            parametros.IrrfAliquotas = valor.Split(',').Select(v => decimal.Parse(v.Trim(), CultureInfo.InvariantCulture)).ToList();
                             break;
                         case "IRRF_DEDUCOES":
-                            parametros.IrrfDeducoes = valor.Split(',').Select(v => decimal.Parse(v)).ToList();
+                            parametros.IrrfDeducoes = valor.Split(',').Select(v => decimal.Parse(v.Trim(), CultureInfo.InvariantCulture)).ToList();
                             break;
                         case "FGTS":
-                            parametros.Fgts = decimal.Parse(valor);
+                            parametros.Fgts = decimal.Parse(valor.Trim(), CultureInfo.InvariantCulture);
                             break;
                         case "SALARIO_FAMILIA":
-                            parametros.SalarioFamilia = decimal.Parse(valor);
+                            parametros.SalarioFamilia = decimal.Parse(valor.Trim(), CultureInfo.InvariantCulture);
                             break;
                         case "LIMITE_SALARIO_FAMILIA":
-                            parametros.LimiteSalarioFamilia = decimal.Parse(valor);
+                            parametros.LimiteSalarioFamilia = decimal.Parse(valor.Trim(), CultureInfo.InvariantCulture);
+                            break; 
+                        case "SALARIO_MINIMO":
+                            parametros.SalarioMinimo = decimal.Parse(valor.Trim(), CultureInfo.InvariantCulture);
                             break;
                     }
                 }
@@ -76,53 +84,88 @@ namespace FolhaDePagamento_Parametros
 
             return parametros;
         }
-        public void SalvarParametrosNoArquivo(string ano, Parametros novos)
-        {
-            string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "parametros.txt");
 
-            // Lê todas as linhas existentes, se houver
+        public void SalvarParametros(string ano, Parametros novos)
+        {
             List<string> linhas = File.Exists(path) ? File.ReadAllLines(path).ToList() : new List<string>();
 
             int indexInicio = linhas.FindIndex(l => l.Trim() == $"[{ano}]");
-
             if (indexInicio != -1)
             {
-                // Encontrar o final do bloco atual
                 int indexFim = indexInicio + 1;
                 while (indexFim < linhas.Count && !linhas[indexFim].StartsWith("[")) indexFim++;
-
                 linhas.RemoveRange(indexInicio, indexFim - indexInicio);
             }
 
-            // Adiciona os novos dados do ano ao final da lista
             linhas.Add($"[{ano}]");
             linhas.AddRange(GerarLinhasDeParametro(novos));
 
-            // Escreve tudo com StreamWriter
-            using (StreamWriter writer = new StreamWriter(path, false)) // false = sobrescreve tudo
+            using (StreamWriter writer = new StreamWriter(path, false))
             {
                 foreach (string linha in linhas)
                 {
                     writer.WriteLine(linha);
                 }
             }
-            MessageBox.Show("Alterações realizadas com sucesso!","Status",MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
         }
+
         private List<string> GerarLinhasDeParametro(Parametros p)
         {
             return new List<string>
     {
-        $"INSS_FAIXAS={string.Join(",", p.InssFaixas)}",
-        $"INSS_ALIQUOTAS={string.Join(",", p.InssAliquotas)}",
-        $"IRRF_FAIXAS={string.Join(",", p.IrrfFaixas)}",
-        $"IRRF_ALIQUOTAS={string.Join(",", p.IrrfAliquotas)}",
-        $"IRRF_DEDUCOES={string.Join(",", p.IrrfDeducoes)}",
-        $"FGTS={p.Fgts}"
+        $"INSS_FAIXAS={string.Join(",", p.InssFaixas.Select(v => v.ToString("F2", CultureInfo.InvariantCulture)))}",
+        $"INSS_ALIQUOTAS={string.Join(",", p.InssAliquotas.Select(v => v.ToString("F2", CultureInfo.InvariantCulture)))}",
+        $"IRRF_FAIXAS={string.Join(",", p.IrrfFaixas.Select(v => v.ToString("F2", CultureInfo.InvariantCulture)))}",
+        $"IRRF_ALIQUOTAS={string.Join(",", p.IrrfAliquotas.Select(v => v.ToString("F2", CultureInfo.InvariantCulture)))}",
+        $"IRRF_DEDUCOES={string.Join(",", p.IrrfDeducoes.Select(v => v.ToString("F2", CultureInfo.InvariantCulture)))}",
+        $"FGTS={p.Fgts.ToString("F2", CultureInfo.InvariantCulture)}",
+        $"SALARIO_MINIMO={p.SalarioMinimo.ToString("F2", CultureInfo.InvariantCulture)}"
     };
+        }
+
+        public decimal CalcularINSS(decimal salario, string ano)
+        {
+            Parametros p = CarregarParametrosPorAno(ano);
+            decimal total = 0;
+            decimal faixaAnterior = 0;
+
+            for (int i = 0; i < p.InssFaixas.Count; i++)
+            {
+                decimal faixaAtual = p.InssFaixas[i];
+                decimal aliquota = p.InssAliquotas[i];
+
+                if (salario > faixaAtual)
+                {
+                    total += (faixaAtual - faixaAnterior) * aliquota;
+                }
+                else
+                {
+                    total += (salario - faixaAnterior) * aliquota;
+                    break;
+                }
+
+                faixaAnterior = faixaAtual;
+            }
+
+            return Math.Round(total, 2);
         }
 
 
 
+
+        public decimal CalcularIRRF(decimal baseCalculo, string ano)
+        {
+            Parametros p = CarregarParametrosPorAno(ano);
+            for (int i = p.IrrfFaixas.Count - 1; i >= 0; i--)
+            {
+                if (baseCalculo > p.IrrfFaixas[i])
+                {
+                    return Math.Round(baseCalculo * p.IrrfAliquotas[i] - p.IrrfDeducoes[i], 2);
+                }
+            }
+
+            return 0;
+        }
     }
 
 }

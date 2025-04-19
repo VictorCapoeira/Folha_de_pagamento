@@ -89,6 +89,8 @@
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
+            this.txtValetransporte = new System.Windows.Forms.TextBox();
+            this.label28 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -206,15 +208,15 @@
             // 
             this.cmbValetransporte.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbValetransporte.FormattingEnabled = true;
-            this.cmbValetransporte.Location = new System.Drawing.Point(318, 115);
+            this.cmbValetransporte.Location = new System.Drawing.Point(315, 115);
             this.cmbValetransporte.Name = "cmbValetransporte";
-            this.cmbValetransporte.Size = new System.Drawing.Size(159, 21);
+            this.cmbValetransporte.Size = new System.Drawing.Size(54, 21);
             this.cmbValetransporte.TabIndex = 16;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(233, 118);
+            this.label8.Location = new System.Drawing.Point(227, 118);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(85, 13);
             this.label8.TabIndex = 15;
@@ -240,7 +242,7 @@
             // 
             // txtPensao
             // 
-            this.txtPensao.Location = new System.Drawing.Point(425, 149);
+            this.txtPensao.Location = new System.Drawing.Point(320, 149);
             this.txtPensao.Name = "txtPensao";
             this.txtPensao.Size = new System.Drawing.Size(52, 20);
             this.txtPensao.TabIndex = 20;
@@ -250,9 +252,9 @@
             this.label10.AutoSize = true;
             this.label10.Location = new System.Drawing.Point(245, 153);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(181, 13);
+            this.label10.Size = new System.Drawing.Size(73, 13);
             this.label10.TabIndex = 19;
-            this.label10.Text = "Porcentagem de pensão alimenticia: ";
+            this.label10.Text = "Porcentagem:";
             // 
             // cmbValeReifeicao
             // 
@@ -274,19 +276,20 @@
             // 
             // txtValerefeicao
             // 
-            this.txtValerefeicao.Location = new System.Drawing.Point(425, 179);
+            this.txtValerefeicao.Location = new System.Drawing.Point(320, 179);
             this.txtValerefeicao.Name = "txtValerefeicao";
             this.txtValerefeicao.Size = new System.Drawing.Size(52, 20);
             this.txtValerefeicao.TabIndex = 24;
+            this.txtValerefeicao.TextChanged += new System.EventHandler(this.txtValerefeicao_TextChanged);
             // 
             // label12
             // 
             this.label12.AutoSize = true;
             this.label12.Location = new System.Drawing.Point(245, 182);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(165, 13);
+            this.label12.Size = new System.Drawing.Size(73, 13);
             this.label12.TabIndex = 23;
-            this.label12.Text = "Porcentagem descontada do VR:";
+            this.label12.Text = "Porcentagem:";
             // 
             // label13
             // 
@@ -626,11 +629,29 @@
             this.button6.UseVisualStyleBackColor = true;
             this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
+            // txtValetransporte
+            // 
+            this.txtValetransporte.Location = new System.Drawing.Point(447, 114);
+            this.txtValetransporte.Name = "txtValetransporte";
+            this.txtValetransporte.Size = new System.Drawing.Size(34, 20);
+            this.txtValetransporte.TabIndex = 64;
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Location = new System.Drawing.Point(375, 118);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(73, 13);
+            this.label28.TabIndex = 63;
+            this.label28.Text = "Porcentagem:";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(489, 790);
+            this.Controls.Add(this.txtValetransporte);
+            this.Controls.Add(this.label28);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
@@ -763,6 +784,8 @@
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.TextBox txtValetransporte;
+        private System.Windows.Forms.Label label28;
     }
 }
 
