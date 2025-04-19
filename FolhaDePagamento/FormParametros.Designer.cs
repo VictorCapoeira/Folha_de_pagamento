@@ -44,6 +44,8 @@
             this.button2 = new System.Windows.Forms.Button();
             this.txtFgts = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.txtSalarioMinimo = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // cmbAnoParametro
@@ -156,7 +158,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(15, 376);
+            this.button2.Location = new System.Drawing.Point(12, 416);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(152, 37);
             this.button2.TabIndex = 13;
@@ -170,6 +172,7 @@
             this.txtFgts.Name = "txtFgts";
             this.txtFgts.Size = new System.Drawing.Size(121, 20);
             this.txtFgts.TabIndex = 15;
+            this.txtFgts.TextChanged += new System.EventHandler(this.txtFgts_TextChanged);
             // 
             // label6
             // 
@@ -180,11 +183,29 @@
             this.label6.TabIndex = 14;
             this.label6.Text = "Fgts";
             // 
+            // txtSalarioMinimo
+            // 
+            this.txtSalarioMinimo.Location = new System.Drawing.Point(25, 390);
+            this.txtSalarioMinimo.Name = "txtSalarioMinimo";
+            this.txtSalarioMinimo.Size = new System.Drawing.Size(121, 20);
+            this.txtSalarioMinimo.TabIndex = 17;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(9, 373);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(74, 13);
+            this.label7.TabIndex = 16;
+            this.label7.Text = "Salario minimo";
+            // 
             // FormParametros
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(208, 425);
+            this.ClientSize = new System.Drawing.Size(208, 465);
+            this.Controls.Add(this.txtSalarioMinimo);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.txtFgts);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.button2);
@@ -227,5 +248,7 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.TextBox txtFgts;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox txtSalarioMinimo;
+        private System.Windows.Forms.Label label7;
     }
 }

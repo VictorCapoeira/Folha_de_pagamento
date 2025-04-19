@@ -16,9 +16,13 @@ namespace FolhaDePagamento
     {
         public int yOffset = 0;
         public int yOffset2 = 0;
+        public string nome;
+        public string matricula;
+        public string cargo;
         public decimal salarioBase;
         public decimal pensaoPorcetagem;
         public decimal valeRefeicaoPorcetagem;
+        public decimal valeTranportePorcetagem;
         public decimal horaExtra50Tempo;
         public decimal horaExtra100Tempo;
         public decimal falta1SemanaTempo;
@@ -28,47 +32,76 @@ namespace FolhaDePagamento
         public int anoSelecionado;
         public decimal salarioBruto;
         public decimal salarioLiquido;
-        public decimal horaExtraValores = 0;
+        public decimal horaExtraValores;
         public decimal faltasvalores;
         public decimal inssValor;
         public decimal fgtsValor;
         public decimal irrfValor;
+        public decimal valeTransporteValor;
+        public decimal valeAlimentacaoValor;
+        public decimal pensaoValor;
+        public decimal periculosidadeValor;
+        public decimal insalubridadeValor;
 
-        Parametros parametros = new Parametros();
+        BaseDeParametros parametros = new BaseDeParametros();
         public Form1()
         {
             InitializeComponent();
-            cmbInsalubridade.Items.Add(0);
+            cmbInsalubridade.Items.Add("Não");
             cmbInsalubridade.Items.Add(10);
             cmbInsalubridade.Items.Add(20);
             cmbInsalubridade.Items.Add(40);
+            cmbInsalubridade.SelectedItem = "Não";
+
             cmbPericulosidade.Items.Add("Sim");
             cmbPericulosidade.Items.Add("Não");
+            cmbPericulosidade.SelectedItem = "Não";
+
             cmbValeReifeicao.Items.Add("Sim");
             cmbValeReifeicao.Items.Add("Não");
-            cmbPensao.Items.Add("Sim");
-            cmbPensao.Items.Add("Não");
+            cmbValeReifeicao.SelectedItem = "Não";
+
             cmbHora50.Items.Add("Sim");
             cmbHora50.Items.Add("Não");
+            cmbHora50.SelectedItem = "Não";
+
             cmbHora100.Items.Add("Sim");
             cmbHora100.Items.Add("Não");
+            cmbHora100.SelectedItem = "Não";
+
             cmbValetransporte.Items.Add("Sim");
             cmbValetransporte.Items.Add("Não");
+            cmbValetransporte.SelectedItem = "Não";
+
             cmbFalta1.Items.Add("Sim");
             cmbFalta1.Items.Add("Não");
+            cmbFalta1.SelectedItem = "Não";
+
             cmbFalta2.Items.Add("Sim");
             cmbFalta2.Items.Add("Não");
+            cmbFalta2.SelectedItem = "Não";
+
             cmbFalta3.Items.Add("Sim");
             cmbFalta3.Items.Add("Não");
+            cmbFalta3.SelectedItem = "Não";
+
             cmbFalta4.Items.Add("Sim");
             cmbFalta4.Items.Add("Não");
+            cmbFalta4.SelectedItem = "Não";
+
             cmbAno.Items.Add(2025);
             cmbAno.Items.Add(2024);
             cmbAno.Items.Add(2023);
             cmbAno.Items.Add(2022);
             cmbAno.Items.Add(2021);
             cmbAno.Items.Add(2020);
+            cmbAno.SelectedItem = 2025;
 
+            cmbPensao.Items.Add("Não");
+            cmbPensao.Items.Add("Sobre provento liquido");
+            cmbPensao.Items.Add("Sobre provento bruto");
+            cmbPensao.SelectedItem = "Não";
+            
 
         }
 
@@ -172,12 +205,28 @@ namespace FolhaDePagamento
 
         private void button4_Click(object sender, EventArgs e)
         {
-            if(!decimal.TryParse(txtSalarioBase.Text, out salarioBase)){
+            pensaoValor = 0;
+            salarioLiquido = 0;
+            salarioBruto = 0;
+            valeAlimentacaoValor = 0;
+            valeTransporteValor = 0;
+            horaExtraValores = 0;
+            insalubridadeValor = 0;
+            periculosidadeValor = 0;
+            faltasvalores = 0;
+            inssValor = 0;
+            irrfValor = 0;
+            fgtsValor = 0;
+
+            nome = txtNome.Text != "" ? txtNome.Text : "Dado não informado!";
+            cargo = txtCargo.Text != "" ? txtCargo.Text : "Dado não informado!";
+            matricula = txtMatricula.Text != "" ? txtMatricula.Text : "Dado não informado!";
+            if (!decimal.TryParse(txtSalarioBase.Text, out salarioBase)){
                 MessageBox.Show("Valor de salário inválido ou campo está vazio!","Error", MessageBoxButtons.OK , MessageBoxIcon.Error);
                 txtSalarioBase.Focus();
                 return;
             }
-            if (cmbPensao.Text == "Sim" && !decimal.TryParse(txtPensao.Text, out pensaoPorcetagem))
+            if (cmbPensao.Text != "Não" && !decimal.TryParse(txtPensao.Text, out pensaoPorcetagem))
             {
                 MessageBox.Show("Valor de pensão alimenticia é inválido ou campo está vazio!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtPensao.Focus();
@@ -225,6 +274,12 @@ namespace FolhaDePagamento
                 txtFalta4.Focus();
                 return;
             }
+            if (cmbValetransporte.Text == "Sim" && !decimal.TryParse(txtValetransporte.Text, out valeTranportePorcetagem))
+            {
+                MessageBox.Show("Valor do vale transporte é inválido ou campo está vazio!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtValetransporte.Focus();
+                return;
+            }
             if (!int.TryParse(cmbAno.Text, out anoSelecionado))
             {
                 MessageBox.Show("Selecione o ano!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -257,10 +312,57 @@ namespace FolhaDePagamento
             {
                 horaExtraValores += (salarioBase / 220) * 1.5m * horaExtra50Tempo;
             }
-            salarioBruto = salarioBase + horaExtraValores + SomarAdicionais();
-            inssValor = CalcularINSS(salarioBruto, parametrosbase);
-            irrfValor = CalcularIRRF((salarioBruto - inssValor), parametrosbase);
+            if (falta1SemanaTempo != 0)
+            {
+                faltasvalores += (salarioBase / 220) * falta1SemanaTempo;
+            }
+            if (falta2SemanaTempo != 0)
+            {
+                faltasvalores += (salarioBase / 220) * falta2SemanaTempo;
+            }
+            if (falta3SemanaTempo != 0)
+            {
+                faltasvalores += (salarioBase / 220) * falta3SemanaTempo;
+            }
+            if (falta4SemanaTempo != 0)
+            {
+                faltasvalores += (salarioBase / 220) * falta4SemanaTempo;
+            }
+            if (valeTranportePorcetagem != 0)
+            {
+                valeTransporteValor += (salarioBase * valeTranportePorcetagem) / 100 ;
+            }
+            if (valeRefeicaoPorcetagem != 0)
+            {
+                valeAlimentacaoValor += (salarioBase * valeRefeicaoPorcetagem) / 100;
+            }
+            if (cmbInsalubridade.Text != "Não")
+            {
+                insalubridadeValor += (parametrosbase.SalarioMinimo * decimal.Parse(cmbInsalubridade.Text)) / 100;
+            }
+            if (cmbPericulosidade.Text == "Sim")
+            {
+                periculosidadeValor += (salarioBase * 30) / 100;
+            }
+
+            salarioBruto = salarioBase + horaExtraValores + SomarAdicionais() + insalubridadeValor + periculosidadeValor;
+
+            if (pensaoPorcetagem != 0 && cmbPensao.Text == "Sobre provento bruto")
+            {
+                pensaoValor = (salarioBruto * pensaoPorcetagem) / 100;
+            }
+            inssValor = parametros.CalcularINSS(salarioBruto, anoSelecionado.ToString());
+            irrfValor = parametros.CalcularIRRF((salarioBruto - inssValor), anoSelecionado.ToString());
             fgtsValor = salarioBruto * parametrosbase.Fgts;
+            salarioLiquido = salarioBruto - inssValor - irrfValor - SomarDescontos() - faltasvalores - valeTransporteValor - valeAlimentacaoValor - pensaoValor;
+            if (pensaoPorcetagem != 0 && cmbPensao.Text == "Sobre provento liquido")
+            {
+                pensaoValor = (salarioLiquido * pensaoPorcetagem) / 100;
+                salarioLiquido -= pensaoValor;
+            }
+            
+            
+
 
 
         }
@@ -271,45 +373,10 @@ namespace FolhaDePagamento
             frm.ShowDialog();
 
         }
-        private decimal CalcularINSS(decimal salario, Parametros p)
-        {
-            decimal inss = 0;
-            decimal[] faixas = p.InssFaixas.ToArray();
-            decimal[] aliquotas = p.InssAliquotas.ToArray();
-            decimal teto = faixas.Last();
+     
 
-            for (int i = 0; i < faixas.Length; i++)
-            {
-                decimal limite = (i == faixas.Length - 1) ? teto : faixas[i + 1] - faixas[i];
-                decimal baseCalculo = Math.Min(salario, faixas[i]);
 
-                if (salario > faixas[i])
-                {
-                    decimal valorFaixa = (i == 0 ? faixas[i] : faixas[i] - faixas[i - 1]);
-                    inss += valorFaixa * aliquotas[i];
-                }
-                else
-                {
-                    decimal restante = salario - (i == 0 ? 0 : faixas[i - 1]);
-                    inss += restante * aliquotas[i];
-                    break;
-                }
-            }
-
-            return inss;
-        }
-        private decimal CalcularIRRF(decimal baseCalculo, Parametros p)
-        {
-            for (int i = p.IrrfFaixas.Count - 1; i >= 0; i--)
-            {
-                if (baseCalculo > p.IrrfFaixas[i])
-                {
-                    return baseCalculo * p.IrrfAliquotas[i] - p.IrrfDeducoes[i];
-                }
-            }
-
-            return 0;
-        }
+       
         private decimal SomarAdicionais()
         {
             decimal total = 0;
@@ -349,6 +416,9 @@ namespace FolhaDePagamento
             return total;
         }
 
+        private void txtValerefeicao_TextChanged(object sender, EventArgs e)
+        {
 
+        }
     }
 }
