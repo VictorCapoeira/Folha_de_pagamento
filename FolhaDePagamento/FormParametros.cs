@@ -16,5 +16,21 @@ namespace FolhaDePagamento
         {
             InitializeComponent();
         }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+
+        }
+
+        private void FormParametros_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
