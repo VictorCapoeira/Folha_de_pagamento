@@ -11,11 +11,26 @@ namespace FolhaDePagamento_Parametros
 {
     public class Parametros
     {
-        public List<decimal> InssFaixas { get; set; }
-        public List<decimal> InssAliquotas { get; set; }
-        public List<decimal> IrrfFaixas { get; set; }
-        public List<decimal> IrrfAliquotas { get; set; }
-        public List<decimal> IrrfDeducoes { get; set; }
+        public decimal InssFaixas1 { get; set; }
+        public decimal InssFaixas2 { get; set; }
+        public decimal InssFaixas3 { get; set; }
+        public decimal InssFaixas4 { get; set; }
+        public decimal InssAliquotas1 { get; set; }
+        public decimal InssAliquotas2 { get; set; }
+        public decimal InssAliquotas3 { get; set; }
+        public decimal InssAliquotas4 { get; set; }
+        public decimal IrrfFaixas1 { get; set; }
+        public decimal IrrfFaixas2 { get; set; }
+        public decimal IrrfFaixas3 { get; set; }
+        public decimal IrrfFaixas4 { get; set; }
+        public decimal IrrfAliquotas1 { get; set; }
+        public decimal IrrfAliquotas2 { get; set; }
+        public decimal IrrfAliquotas3 { get; set; }
+        public decimal IrrfAliquotas4 { get; set; }
+        public decimal IrrfDeducoes1 { get; set; }
+        public decimal IrrfDeducoes2 { get; set; }
+        public decimal IrrfDeducoes3 { get; set; }
+        public decimal IrrfDeducoes4 { get; set; }
         public decimal Fgts { get; set; }
         public decimal SalarioFamilia { get; set; }
         public decimal LimiteSalarioFamilia { get; set; }
@@ -51,20 +66,65 @@ namespace FolhaDePagamento_Parametros
 
                     switch (chave)
                     {
-                        case "INSS_FAIXAS":
-                            parametros.InssFaixas = valor.Split(',').Select(v => decimal.Parse(v.Trim(), CultureInfo.InvariantCulture)).ToList();
+                        case "INSS FAIXAS 1":
+                            parametros.InssFaixas1 = decimal.Parse(valor.Trim(), CultureInfo.InvariantCulture);
                             break;
-                        case "INSS_ALIQUOTAS":
-                            parametros.InssAliquotas = valor.Split(',').Select(v => decimal.Parse(v.Trim(), CultureInfo.InvariantCulture)).ToList();
+                        case "INSS FAIXAS 2":
+                            parametros.InssFaixas2 = decimal.Parse(valor.Trim(), CultureInfo.InvariantCulture);
                             break;
-                        case "IRRF_FAIXAS":
-                            parametros.IrrfFaixas = valor.Split(',').Select(v => decimal.Parse(v.Trim(), CultureInfo.InvariantCulture)).ToList();
+                        case "INSS FAIXAS 3":
+                            parametros.InssFaixas3 = decimal.Parse(valor.Trim(), CultureInfo.InvariantCulture);
                             break;
-                        case "IRRF_ALIQUOTAS":
-                            parametros.IrrfAliquotas = valor.Split(',').Select(v => decimal.Parse(v.Trim(), CultureInfo.InvariantCulture)).ToList();
+                        case "INSS FAIXAS 4":
+                            parametros.InssFaixas4 = decimal.Parse(valor.Trim(), CultureInfo.InvariantCulture);
                             break;
-                        case "IRRF_DEDUCOES":
-                            parametros.IrrfDeducoes = valor.Split(',').Select(v => decimal.Parse(v.Trim(), CultureInfo.InvariantCulture)).ToList();
+                        case "INSS ALIQUOTAS 1":
+                            parametros.InssAliquotas1 = decimal.Parse(valor.Trim(), CultureInfo.InvariantCulture);
+                            break;
+                        case "INSS ALIQUOTAS 2":
+                            parametros.InssAliquotas2 = decimal.Parse(valor.Trim(), CultureInfo.InvariantCulture);
+                            break;
+                        case "INSS ALIQUOTAS 3":
+                            parametros.InssAliquotas3 = decimal.Parse(valor.Trim(), CultureInfo.InvariantCulture);
+                            break;
+                        case "INSS ALIQUOTAS 4":
+                            parametros.InssAliquotas4 = decimal.Parse(valor.Trim(), CultureInfo.InvariantCulture);
+                            break;
+                        case "IRRF FAIXAS 1":
+                            parametros.IrrfFaixas1 = decimal.Parse(valor.Trim(), CultureInfo.InvariantCulture);
+                            break;
+                        case "IRRF FAIXAS 2":
+                            parametros.IrrfFaixas2 = decimal.Parse(valor.Trim(), CultureInfo.InvariantCulture);
+                            break;
+                        case "IRRF FAIXAS 3":
+                            parametros.IrrfFaixas3 = decimal.Parse(valor.Trim(), CultureInfo.InvariantCulture);
+                            break;
+                        case "IRRF FAIXAS 4":
+                            parametros.IrrfFaixas4 = decimal.Parse(valor.Trim(), CultureInfo.InvariantCulture);
+                            break;
+                        case "IRRF ALIQUOTAS 1":
+                            parametros.IrrfAliquotas1 = decimal.Parse(valor.Trim(), CultureInfo.InvariantCulture);
+                            break;
+                        case "IRRF ALIQUOTAS 2":
+                            parametros.IrrfAliquotas2 = decimal.Parse(valor.Trim(), CultureInfo.InvariantCulture);
+                            break;
+                        case "IRRF ALIQUOTAS 3":
+                            parametros.IrrfAliquotas3 = decimal.Parse(valor.Trim(), CultureInfo.InvariantCulture);
+                            break;
+                        case "IRRF ALIQUOTAS 4":
+                            parametros.IrrfAliquotas4 = decimal.Parse(valor.Trim(), CultureInfo.InvariantCulture);
+                            break;
+                        case "IRRF DEDUCOES 1":
+                            parametros.IrrfDeducoes1 = decimal.Parse(valor.Trim(), CultureInfo.InvariantCulture);
+                            break;
+                        case "IRRF DEDUCOES 2":
+                            parametros.IrrfDeducoes2 = decimal.Parse(valor.Trim(), CultureInfo.InvariantCulture);
+                            break;
+                        case "IRRF DEDUCOES 3":
+                            parametros.IrrfDeducoes3 = decimal.Parse(valor.Trim(), CultureInfo.InvariantCulture);
+                            break;
+                        case "IRRF DEDUCOES 4":
+                            parametros.IrrfDeducoes4 = decimal.Parse(valor.Trim(), CultureInfo.InvariantCulture);
                             break;
                         case "FGTS":
                             parametros.Fgts = decimal.Parse(valor.Trim(), CultureInfo.InvariantCulture);
@@ -113,41 +173,83 @@ namespace FolhaDePagamento_Parametros
         {
             return new List<string>
     {
-        $"INSS_FAIXAS={string.Join(",", p.InssFaixas.Select(v => v.ToString("F2", CultureInfo.InvariantCulture)))}",
-        $"INSS_ALIQUOTAS={string.Join(",", p.InssAliquotas.Select(v => v.ToString("F2", CultureInfo.InvariantCulture)))}",
-        $"IRRF_FAIXAS={string.Join(",", p.IrrfFaixas.Select(v => v.ToString("F2", CultureInfo.InvariantCulture)))}",
-        $"IRRF_ALIQUOTAS={string.Join(",", p.IrrfAliquotas.Select(v => v.ToString("F2", CultureInfo.InvariantCulture)))}",
-        $"IRRF_DEDUCOES={string.Join(",", p.IrrfDeducoes.Select(v => v.ToString("F2", CultureInfo.InvariantCulture)))}",
-        $"FGTS={p.Fgts.ToString("F2", CultureInfo.InvariantCulture)}",
-        $"SALARIO_MINIMO={p.SalarioMinimo.ToString("F2", CultureInfo.InvariantCulture)}"
+        $"INSS FAIXAS 1={p.InssFaixas1.ToString("G", CultureInfo.InvariantCulture)}",
+        $"INSS FAIXAS 2={p.InssFaixas2.ToString("G", CultureInfo.InvariantCulture)}",
+        $"INSS FAIXAS 3={p.InssFaixas3.ToString("G", CultureInfo.InvariantCulture)}",
+        $"INSS FAIXAS 4={p.InssFaixas4.ToString("G", CultureInfo.InvariantCulture)}",
+        $"INSS ALIQUOTAS 1={p.InssAliquotas1.ToString("G", CultureInfo.InvariantCulture)}",
+        $"INSS ALIQUOTAS 2={p.InssAliquotas2.ToString("G", CultureInfo.InvariantCulture)}",
+        $"INSS ALIQUOTAS 3={p.InssAliquotas3.ToString("G", CultureInfo.InvariantCulture)}",
+        $"INSS ALIQUOTAS 4={p.InssAliquotas4.ToString("G", CultureInfo.InvariantCulture)}",
+        $"IRRF FAIXAS 1={p.IrrfFaixas1.ToString("G", CultureInfo.InvariantCulture)}",
+        $"IRRF FAIXAS 2={p.IrrfFaixas2.ToString("G", CultureInfo.InvariantCulture)}",
+        $"IRRF FAIXAS 3={p.IrrfFaixas3.ToString("G", CultureInfo.InvariantCulture)}",
+        $"IRRF FAIXAS 4={p.IrrfFaixas4.ToString("G", CultureInfo.InvariantCulture)}",
+        $"IRRF ALIQUOTAS 1={p.IrrfAliquotas1.ToString("G", CultureInfo.InvariantCulture)}",
+        $"IRRF ALIQUOTAS 2={p.IrrfAliquotas2.ToString("G", CultureInfo.InvariantCulture)}",
+        $"IRRF ALIQUOTAS 3={p.IrrfAliquotas3.ToString("G", CultureInfo.InvariantCulture)}",
+        $"IRRF ALIQUOTAS 4={p.IrrfAliquotas4.ToString("G", CultureInfo.InvariantCulture)}",
+        $"IRRF DEDUCOES 1={p.IrrfDeducoes1.ToString("G", CultureInfo.InvariantCulture)}",
+        $"IRRF DEDUCOES 2={p.IrrfDeducoes2.ToString("G", CultureInfo.InvariantCulture)}",
+        $"IRRF DEDUCOES 3={p.IrrfDeducoes3.ToString("G", CultureInfo.InvariantCulture)}",
+        $"IRRF DEDUCOES 4={p.IrrfDeducoes4.ToString("G", CultureInfo.InvariantCulture)}",
+        $"FGTS={p.Fgts.ToString("G", CultureInfo.InvariantCulture)}",
+        $"SALARIO_MINIMO={p.SalarioMinimo.ToString("G", CultureInfo.InvariantCulture)}"
     };
         }
 
         public decimal CalcularINSS(decimal salario, string ano)
         {
-            Parametros p = CarregarParametrosPorAno(ano);
-            decimal total = 0;
+            Parametros p = CarregarParametrosPorAno(ano); 
+            decimal total = 0; 
             decimal faixaAnterior = 0;
-
-            for (int i = 0; i < p.InssFaixas.Count; i++)
+            if (salario > p.InssFaixas1)
             {
-                decimal faixaAtual = p.InssFaixas[i];
-                decimal aliquota = p.InssAliquotas[i];
+                total += (p.InssFaixas1 - faixaAnterior) * p.InssAliquotas1;
+                faixaAnterior = p.InssFaixas1;
+            }
+            else
+            {
+                total += (salario - faixaAnterior) * p.InssAliquotas1;
+                return Math.Round(total, 2);
+            }
 
-                if (salario > faixaAtual)
-                {
-                    total += (faixaAtual - faixaAnterior) * aliquota;
-                }
-                else
-                {
-                    total += (salario - faixaAnterior) * aliquota;
-                    break;
-                }
+            // Faixa 2
+            if (salario > p.InssFaixas2)
+            {
+                total += (p.InssFaixas2 - faixaAnterior) * p.InssAliquotas2;
+                faixaAnterior = p.InssFaixas2;
+            }
+            else
+            {
+                total += (salario - faixaAnterior) * p.InssAliquotas2;
+                return Math.Round(total, 2);
+            }
 
-                faixaAnterior = faixaAtual;
+            // Faixa 3
+            if (salario > p.InssFaixas3)
+            {
+                total += (p.InssFaixas3 - faixaAnterior) * p.InssAliquotas3;
+                faixaAnterior = p.InssFaixas3;
+            }
+            else
+            {
+                total += (salario - faixaAnterior) * p.InssAliquotas3;
+                return Math.Round(total, 2);
+            }
+
+            // Faixa 4 (última)
+            if (salario > p.InssFaixas4)
+            {
+                total += (p.InssFaixas4 - faixaAnterior) * p.InssAliquotas4;
+            }
+            else
+            {
+                total += (salario - faixaAnterior) * p.InssAliquotas4;
             }
 
             return Math.Round(total, 2);
+
         }
 
 
@@ -156,15 +258,21 @@ namespace FolhaDePagamento_Parametros
         public decimal CalcularIRRF(decimal baseCalculo, string ano)
         {
             Parametros p = CarregarParametrosPorAno(ano);
-            for (int i = p.IrrfFaixas.Count - 1; i >= 0; i--)
-            {
-                if (baseCalculo > p.IrrfFaixas[i])
-                {
-                    return Math.Round(baseCalculo * p.IrrfAliquotas[i] - p.IrrfDeducoes[i], 2);
-                }
-            }
+            if (baseCalculo <= p.IrrfFaixas1)
+                return 0;
 
-            return 0;
+            if (baseCalculo <= p.IrrfFaixas2)
+                return Math.Round((baseCalculo * p.IrrfAliquotas1) - p.IrrfDeducoes1, 2);
+
+            if (baseCalculo <= p.IrrfFaixas3)
+                return Math.Round((baseCalculo * p.IrrfAliquotas2) - p.IrrfDeducoes2, 2);
+
+            if (baseCalculo <= p.IrrfFaixas4)
+                return Math.Round((baseCalculo * p.IrrfAliquotas3) - p.IrrfDeducoes3, 2);
+
+            // Acima da última faixa
+            return Math.Round((baseCalculo * p.IrrfAliquotas4) - p.IrrfDeducoes4, 2);
+
         }
     }
 
