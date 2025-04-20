@@ -23,15 +23,14 @@ Este projeto tem como objetivo o desenvolvimento de um sistema de folha de pagam
 
 - [x] Levantamento de requisitos (regras de negócio, requisitos funcionais e não funcionais)
 - [x] Definição das fórmulas de cálculo (INSS, IRRF, VT, FGTS)
-
+- [x] Criar interface do Formulário de Cálculo
+- [x] Criar interface do Formulário de Padronização
+- [x] Implementar lógica de cálculo com base nas fórmulas definidas
+- [x] Adicionar funcionalidade para exportação em PDF
+- [x] Implementar alertas e validações de dados
+- [x] Adicionar armazenamento local por meio de txt
 ## 📋 Backlog (em desenvolvimento)
 
-- [ ] Criar interface do Formulário de Cálculo
-- [ ] Criar interface do Formulário de Padronização
-- [ ] Implementar lógica de cálculo com base nas fórmulas definidas
-- [ ] Adicionar funcionalidade para exportação em PDF
-- [ ] Implementar alertas e validações de dados
-- [ ] Adicionar armazenamento local por meio de txt
 - [ ] Criar instalador leve para distribuição
 
 ## 📄 Licença
