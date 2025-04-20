@@ -60,29 +60,3 @@ Sistema de folha de pagamento com base nas normas brasileiras vigentes, desenvol
 | RNF06 | O sistema deve funcionar em ambientes Windows 10 ou superior. |
 
 ---
-
-## 🧮 Fórmulas Implementadas
-
-- **Salário Bruto** = Salário Base + Horas Extras + Adicionais
-- **INSS** = Cálculo progressivo baseado nas faixas e alíquotas de 2025
-- **IRRF** = (Base de Cálculo × Alíquota) - Dedução
-- **VT** = Salário Base × 6% (ou custo real, se inferior)
-- **FGTS** = Salário Bruto × 8%
-- **Salário-Família** = Valor fixo por dependente, conforme faixa salarial
-- **Vale-Alimentação**:
-  - **Com PAT**: Não incide sobre base de cálculo de encargos
-  - **Sem PAT**: Integra salário bruto e incide sobre encargos
-- **Salário Líquido** = Salário Bruto + Salário-Família + Benefícios - Descontos (INSS, IRRF, VT, etc.)
-
----
-
-## 📌 Observações
-
-- O valor do salário-família será parametrizável no formulário de padronização, assim como a faixa de renda para concessão.
-- O sistema será modular: lógica de cálculo separada da interface.
-- O cálculo do vale-alimentação dependerá de um campo de seleção (PAT: Sim/Não) definido pelo usuário.
-- As atualizações nas faixas e alíquotas não devem depender de recompilação.
-
----
-
-
