@@ -360,8 +360,74 @@ namespace FolhaDePagamento
                 pensaoValor = (salarioLiquido * pensaoPorcetagem) / 100;
                 salarioLiquido -= pensaoValor;
             }
-            MessageBox.Show(salarioLiquido.ToString());
-            
+            // Lista de ganhos detalhada
+            var ganhos = new List<(string, decimal)>
+                {
+                    ("Salário Base", salarioBase),
+                    ("Horas Extras", horaExtraValores),
+                    ("Insalubridade", insalubridadeValor),
+                    ("Periculosidade", periculosidadeValor)
+                };
+
+            // Capturar os adicionais com nome e valor
+            foreach (Control c in panelAdicionais.Controls)
+            {
+                if (c is TextBox txtNome && txtNome.Name.Contains("Nome"))
+                {
+                    string nome = txtNome.Text.Trim();
+
+                    // Pegar o TextBox irmão (Valor) baseado na posição
+                    int index = panelAdicionais.Controls.IndexOf(txtNome);
+                    if (index + 1 < panelAdicionais.Controls.Count &&
+                        panelAdicionais.Controls[index + 1] is TextBox txtValor &&
+                        decimal.TryParse(txtValor.Text, out decimal valor))
+                    {
+                        ganhos.Add((nome, valor));
+                    }
+                }
+            }
+            var descontos = new List<(string, decimal)>
+            {
+                ("INSS", inssValor),
+                ("IRRF", irrfValor)
+            };
+
+            if (valeTransporteValor > 0)
+                descontos.Add(("VT", valeTransporteValor));
+
+            if (valeAlimentacaoValor > 0)
+                descontos.Add(("VR", valeAlimentacaoValor));
+
+            if (faltasvalores > 0)
+                descontos.Add(("Faltas", faltasvalores));
+
+            if (pensaoValor > 0)
+                descontos.Add(("Pensão", pensaoValor));
+
+
+            // Capturar os descontos extras com nome e valor
+            foreach (Control c in panelDescontos.Controls)
+            {
+                if (c is TextBox txtNome && txtNome.Name.Contains("Nome"))
+                {
+                    string nome = txtNome.Text.Trim();
+
+                    int index = panelDescontos.Controls.IndexOf(txtNome);
+                    if (index + 1 < panelDescontos.Controls.Count &&
+                        panelDescontos.Controls[index + 1] is TextBox txtValor &&
+                        decimal.TryParse(txtValor.Text, out decimal valor))
+                    {
+                        descontos.Add((nome, valor));
+                    }
+                }
+            }
+            var formResumo = new FormResumo(ganhos, descontos, salarioBruto, salarioLiquido, txtNome.Text, txtMatricula.Text, txtCargo.Text);
+            formResumo.ShowDialog();
+
+
+
+
+
 
 
 

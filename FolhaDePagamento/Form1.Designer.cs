@@ -87,7 +87,6 @@
             this.label29 = new System.Windows.Forms.Label();
             this.cmbAno = new System.Windows.Forms.ComboBox();
             this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.txtValetransporte = new System.Windows.Forms.TextBox();
             this.label28 = new System.Windows.Forms.Label();
@@ -602,7 +601,7 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(9, 706);
+            this.button4.Location = new System.Drawing.Point(93, 706);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(133, 67);
             this.button4.TabIndex = 60;
@@ -610,18 +609,9 @@
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
-            // button5
-            // 
-            this.button5.Location = new System.Drawing.Point(169, 706);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(133, 67);
-            this.button5.TabIndex = 61;
-            this.button5.Text = "Limpar";
-            this.button5.UseVisualStyleBackColor = true;
-            // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(318, 706);
+            this.button6.Location = new System.Drawing.Point(248, 706);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(133, 67);
             this.button6.TabIndex = 62;
@@ -653,7 +643,6 @@
             this.Controls.Add(this.txtValetransporte);
             this.Controls.Add(this.label28);
             this.Controls.Add(this.button6);
-            this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.cmbAno);
             this.Controls.Add(this.label29);
@@ -782,7 +771,6 @@
         private System.Windows.Forms.Label label29;
         private System.Windows.Forms.ComboBox cmbAno;
         private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.TextBox txtValetransporte;
         private System.Windows.Forms.Label label28;

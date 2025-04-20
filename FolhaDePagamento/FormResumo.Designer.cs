@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormResumo));
             this.dgvGanhos = new System.Windows.Forms.DataGridView();
             this.Nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -42,12 +42,10 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.lblBruto = new System.Windows.Forms.Label();
-            this.lblLiquido = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
+            this.lblLiquido = new System.Windows.Forms.Label();
+            this.lblBruto = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvGanhos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDescontos)).BeginInit();
             this.SuspendLayout();
@@ -62,7 +60,6 @@
             this.dgvGanhos.Name = "dgvGanhos";
             this.dgvGanhos.Size = new System.Drawing.Size(239, 150);
             this.dgvGanhos.TabIndex = 0;
-            this.dgvGanhos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvGanhos_CellContentClick);
             // 
             // Nome
             // 
@@ -71,9 +68,9 @@
             // 
             // Valor
             // 
-            dataGridViewCellStyle5.Format = "C2";
-            dataGridViewCellStyle5.NullValue = null;
-            this.Valor.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle7.Format = "C2";
+            dataGridViewCellStyle7.NullValue = null;
+            this.Valor.DefaultCellStyle = dataGridViewCellStyle7;
             this.Valor.HeaderText = "Valor";
             this.Valor.Name = "Valor";
             // 
@@ -95,9 +92,9 @@
             // 
             // dataGridViewTextBoxColumn2
             // 
-            dataGridViewCellStyle6.Format = "C2";
-            dataGridViewCellStyle6.NullValue = null;
-            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle8.Format = "C2";
+            dataGridViewCellStyle8.NullValue = null;
+            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle8;
             this.dataGridViewTextBoxColumn2.HeaderText = "Valor";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             // 
@@ -110,7 +107,6 @@
             this.label1.Size = new System.Drawing.Size(419, 39);
             this.label1.TabIndex = 2;
             this.label1.Text = "FOLHA DE PAGAMENTO";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
@@ -152,40 +148,6 @@
             this.label5.TabIndex = 6;
             this.label5.Text = resources.GetString("label5.Text");
             // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(13, 276);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(73, 13);
-            this.label6.TabIndex = 7;
-            this.label6.Text = "Salário Bruto: ";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(13, 313);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(79, 13);
-            this.label7.TabIndex = 8;
-            this.label7.Text = "Salário Liquido:";
-            // 
-            // lblBruto
-            // 
-            this.lblBruto.AutoSize = true;
-            this.lblBruto.Location = new System.Drawing.Point(104, 276);
-            this.lblBruto.Name = "lblBruto";
-            this.lblBruto.Size = new System.Drawing.Size(0, 13);
-            this.lblBruto.TabIndex = 9;
-            // 
-            // lblLiquido
-            // 
-            this.lblLiquido.AutoSize = true;
-            this.lblLiquido.Location = new System.Drawing.Point(104, 313);
-            this.lblLiquido.Name = "lblLiquido";
-            this.lblLiquido.Size = new System.Drawing.Size(0, 13);
-            this.lblLiquido.TabIndex = 10;
-            // 
             // label8
             // 
             this.label8.AutoSize = true;
@@ -204,6 +166,23 @@
             this.button1.TabIndex = 12;
             this.button1.Text = "Exportar";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // lblLiquido
+            // 
+            this.lblLiquido.AutoSize = true;
+            this.lblLiquido.Location = new System.Drawing.Point(17, 313);
+            this.lblLiquido.Name = "lblLiquido";
+            this.lblLiquido.Size = new System.Drawing.Size(0, 13);
+            this.lblLiquido.TabIndex = 10;
+            // 
+            // lblBruto
+            // 
+            this.lblBruto.AutoSize = true;
+            this.lblBruto.Location = new System.Drawing.Point(17, 276);
+            this.lblBruto.Name = "lblBruto";
+            this.lblBruto.Size = new System.Drawing.Size(0, 13);
+            this.lblBruto.TabIndex = 9;
             // 
             // FormResumo
             // 
@@ -214,8 +193,6 @@
             this.Controls.Add(this.label8);
             this.Controls.Add(this.lblLiquido);
             this.Controls.Add(this.lblBruto);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -246,11 +223,9 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label lblBruto;
-        private System.Windows.Forms.Label lblLiquido;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label lblLiquido;
+        private System.Windows.Forms.Label lblBruto;
     }
 }
