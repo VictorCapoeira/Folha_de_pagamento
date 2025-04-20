@@ -639,6 +639,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(489, 790);
             this.Controls.Add(this.txtValetransporte);
             this.Controls.Add(this.label28);
