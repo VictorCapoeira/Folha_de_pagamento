@@ -421,9 +421,11 @@ namespace FolhaDePagamento
                     }
                 }
             }
+            
+        
             var formResumo = new FormResumo(ganhos, descontos, salarioBruto, salarioLiquido, txtNome.Text, txtMatricula.Text, txtCargo.Text);
             formResumo.ShowDialog();
-
+            
 
 
 

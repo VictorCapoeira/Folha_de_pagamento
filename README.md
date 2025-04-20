@@ -29,9 +29,10 @@ Este projeto tem como objetivo o desenvolvimento de um sistema de folha de pagam
 - [x] Adicionar funcionalidade para exportação em PDF
 - [x] Implementar alertas e validações de dados
 - [x] Adicionar armazenamento local por meio de txt
+- [x] - Criar instalador leve para distribuição
 ## 📋 Backlog (em desenvolvimento)
 
-- [ ] Criar instalador leve para distribuição
+
 
 ## 📄 Licença
 
